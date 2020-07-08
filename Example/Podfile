@@ -1,0 +1,6 @@
+use_frameworks!
+target 'SLEssentials_Tests' do
+  pod 'SLEssentials', :path => '../'
+  
+  
+end
