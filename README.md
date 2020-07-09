@@ -14,8 +14,8 @@
 ## Modules
 
 - [NibHelper](https://github.com/swifty-labs/SLEssentials#nib_helper)
-- KeyboardContentManager
-- UIViewControllerEmbeding
+- [KeyboardContentManager](https://github.com/swifty-labs/SLEssentials#keyboard_content_manager)
+- [UIViewControllerEmbeding](https://github.com/swifty-labs/SLEssentials#controller_embeding)
 
 ## Requirements
 
@@ -43,6 +43,12 @@ pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentia
 
 ## NibHelper
 <div id ="nib_helper"></div>
+
+## KeyboardContentManager
+<div id="keyboard_content_manager"></div>
+
+## UIViewControllerEmbeding
+<div id="controller_embeding"></div>
 
 ## Author
 
