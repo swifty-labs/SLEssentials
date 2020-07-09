@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  SLEssentials contains most of Swift staff that have found a purpose in almost all ios applications. It is based on extensions, managers and wrappers that covers most of application functionality.
+  SLEssentials contains most of Swift staff that have found a purpose in almost all ios applications. 
+  It is based on extensions, managers and wrappers that covers most of application functionality.
                        DESC
 
   s.homepage         = 'https://github.com/swifty-labs/SLEssentials'
