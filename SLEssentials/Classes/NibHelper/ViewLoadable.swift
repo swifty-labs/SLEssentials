@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwiftyLabs. All rights reserved.
 //
 
-protocol ViewLoadable: NibLoadable {
+public protocol ViewLoadable: NibLoadable {
     static var instance: Self { get }
 }
 
