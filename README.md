@@ -30,4 +30,4 @@ vukasin-popovic, vukasin.popovic@swiftylabs.io
 
 ## License
 
-SLEssentials is available under the MIT license. See the LICENSE file for more info.
+SLEssentials is available under the MIT license. [See the LICENSE](https://github.com/swifty-labs/SLEssentials/blob/master/LICENSE) file for more info.
