@@ -17,7 +17,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-To integrate <p style="color:blue;">I am blue</p>SLEssentialsinto your Xcode project, specify it in your Podfile:
+To integrate **SLEssentials** into your Xcode project, specify it in your Podfile:
 
 ```ruby
 platform :ios, '10.0'
