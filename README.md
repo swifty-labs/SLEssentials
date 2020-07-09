@@ -1,6 +1,6 @@
-<p align="left">
+<p font-size="30px" align="left">
   <img src="https://avatars0.githubusercontent.com/u/67895642?s=400&u=4e7fe101556e810c541efa77b891de9e5b5d4642&v=4" float="left" width="200" height="200">
-  <h1><b>SLEssentails</b></h1>
+  <b>SLEssentails</b>
 </p>
 
 <!--[![CI Status](https://img.shields.io/travis/vukasin-popovic/SLEssentials.svg?style=flat)](https://travis-ci.org/vukasin-popovic/SLEssentials)
