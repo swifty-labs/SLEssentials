@@ -1,9 +1,9 @@
-## SLEssentials
+# SLEssentials
 
-<!--[![CI Status](https://img.shields.io/travis/vukasin-popovic/SLEssentials.svg?style=flat)](https://travis-ci.org/vukasin-popovic/SLEssentials)
+[![CI Status](https://img.shields.io/travis/vukasin-popovic/SLEssentials.svg?style=flat)](https://travis-ci.org/vukasin-popovic/SLEssentials)
 [![Version](https://img.shields.io/cocoapods/v/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 [![License](https://img.shields.io/cocoapods/l/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
-[![Platform](https://img.shields.io/cocoapods/p/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)--!>
+[![Platform](https://img.shields.io/cocoapods/p/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 
 ## Example
 
