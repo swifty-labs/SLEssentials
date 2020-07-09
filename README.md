@@ -1,4 +1,4 @@
-<p font-size="30px" align="left">
+<p font-size="80px" align="left">
   <img src="https://avatars0.githubusercontent.com/u/67895642?s=400&u=4e7fe101556e810c541efa77b891de9e5b5d4642&v=4" float="left" width="200" height="200">
   <b>SLEssentails</b>
 </p>
