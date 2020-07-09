@@ -41,6 +41,6 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
   
   s.subspec 'NibHelper' do |nh|
-    nh.source_files = 'SLEssentials/Classes/NibHelper/**/*'
+    nh.source_files = 'SLEssentials/Classes/NibHelper/*.swift'
   end
 end
