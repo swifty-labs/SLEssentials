@@ -25,7 +25,7 @@ pod 'SLEssentials', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
 ### Subspecs
 
-There are multi subspecs available, like *NibHelper, KeyboardContentManager, UIViewControllerEmbeding* and others. It means, you can install one or more some of the **SLEssentials** modules. By default, you get all modules, so, if you need specific module you must specify it.
+There are multi subspecs available, like *NibHelper, KeyboardContentManager, UIViewControllerEmbeding* and others. It means, you can install one or more of the **SLEssentials** modules. By default, you get all modules, so, if you need specific module you must specify it.
 
 Podfile example:
 ```ruby
