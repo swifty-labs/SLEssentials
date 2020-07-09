@@ -9,11 +9,11 @@
 [![License](https://img.shields.io/cocoapods/l/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 [![Platform](https://img.shields.io/cocoapods/p/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
+
+- iOS 10.0+
+- XCode 11+
+- Swift 5.0+
 
 ## Installation
 
