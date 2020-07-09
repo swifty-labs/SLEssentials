@@ -9,6 +9,14 @@
 [![License](https://img.shields.io/cocoapods/l/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 [![Platform](https://img.shields.io/cocoapods/p/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 
+**SLEssentials** is set of Swift utilities. It contains most of Swift staff that have found a purpose in almost all iOS applications.
+
+## Modules
+
+- [NibHelper](https://github.com/swifty-labs/SLEssentials#nib_helper)
+- KeyboardContentManager
+- UIViewControllerEmbeding
+
 ## Requirements
 
 - iOS 10.0+
@@ -32,6 +40,9 @@ Podfile example:
 platform :ios, '10.0'
 pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
+
+## NibHelper
+<div id ="nib_helper"></div>
 
 ## Author
 
