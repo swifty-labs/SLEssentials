@@ -1,4 +1,4 @@
-<img src="https://avatars0.githubusercontent.com/u/67895642?s=400&u=4e7fe101556e810c541efa77b891de9e5b5d4642&v=4" width="200" height="200">
+
 # SLEssentials 
 
 [![CI Status](https://img.shields.io/travis/vukasin-popovic/SLEssentials.svg?style=flat)](https://travis-ci.org/vukasin-popovic/SLEssentials)
