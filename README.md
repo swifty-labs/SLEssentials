@@ -94,6 +94,8 @@ let overlay = ImageOverlay.instance
 All we need to do is to register and unregister keyborad notifications:
 
 ```swift
+import SLEssentials
+
 override func viewWillAppear(_ animated: Bool) {
 	super.viewWillAppear(animated)
 		
@@ -122,6 +124,23 @@ keyboardManager.keyboardShows {
 
 ## UIViewControllerEmbeding
 
+*UIViewControllerEmbeding* is modul based on simple UIViewController extension and it's used for embeding UIViewController into UIView using constraints, or specifying controller's frame. User can unembed UIViewController also.
+
+```swift
+import SLEssentials
+
+@IBOutlet weak var viewContainer: UIView!
+ 
+ ...
+ 
+let controller = UIViewController() 
+
+embed(viewController: controller, in: viewContainer)
+
+embed(viewController: controller, withFrame: viewContainer.frame, in: viewContainer)
+
+controller.unembed()
+```
 
 ## Author
 
