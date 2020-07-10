@@ -45,10 +45,12 @@ public final class  ScrollViewKeyboardContentManager: KeyboardManageable {
 			let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: height, right: 0.0)
 			scrollView?.contentInset = contentInsets
 			scrollView?.scrollIndicatorInsets = contentInsets
+			keyboardShows()
 		}
 	}
 	
 	@objc func keyboardWillHide(_ notification: Notification) {
+		keyboardHides()
 		scrollView?.contentInset = .zero
 		scrollView?.scrollIndicatorInsets = .zero
 	}
