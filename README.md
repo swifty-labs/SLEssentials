@@ -85,13 +85,43 @@ and now you can instatiate it:
 ```swift
 let overlay = ImageOverlay.instance 
 ```
-
-
-## KeyboardContentManager
 <div id="keyboard_content_manager"></div>
 
-## UIViewControllerEmbeding
+## KeyboardContentManager
+
+*KeyboardContentManager* modul contains actually two managers, ConstraintKeyboardContentManager and ScrollViewKeyboardContentManager, both implementing KeyboardManageable protocol. It purpose is to handle keyboard, in UIScrollView, when we use ScrollViewKeyboardContentManager, manipulating with content inset, and in UIView, when we use ConstraintKeyboardContentManager, maniputaing with view's bottom constraint.
+
+All we need to do is to register and unregister keyborad notifications:
+
+```swift
+override func viewWillAppear(_ animated: Bool) {
+	super.viewWillAppear(animated)
+		
+	keyboardManager.registerForKeyboardNotifications()
+}
+	
+override func viewWillDisappear(_ animated: Bool) {
+	super.viewWillDisappear(animated)
+		
+	keyboardManager.unregisterForKeyboardNotifications()
+} 
+```
+Additional implementation is to use some of two manager's handlers:
+
+```swift
+keyboardManager.keyboardHides{ 
+   ...
+}
+
+keyboardManager.keyboardShows {
+   ...
+}
+```
+
 <div id="controller_embeding"></div>
+
+## UIViewControllerEmbeding
+
 
 ## Author
 
