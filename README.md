@@ -44,6 +44,49 @@ pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentia
 ## NibHelper
 <div id ="nib_helper"></div>
 
+*NibHelper* is based on UIView, UIViewController, UICollectionViewCell and UITableViewCell extensions. It is used for quick and easy views and cells instantiation.
+UICollectionViewCell and UITableViewCell extensions have a similar implementation.
+
+```swift
+import SLEssentials
+
+tableView.registerNib(TableCell.self)
+let cell: TableCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+```
+
+To create initial UIViewController instance using UIStoryboard:
+
+```swift
+import SLEssentials
+
+let controller = UINavigationController.initial() // it is implies that storyboard is Main 
+
+let controller =  UINavigationController.initial(fromStoryboardNamed: "Login") // for specified storyboard
+```
+To create UIViewController instance using UIStoryboard:
+
+```swift
+import SLEssentials
+
+let controller = SignUpController.instantiate(fromStoryboardNamed: "Login")
+```
+
+To create UIVew instance, first, your custom UIView have to implement ViewLoadable protocol
+
+```swift
+import SLEssentials
+
+final class ImageOverlay: UIView, ViewLoadable {
+  ...
+}
+```
+and now you can instatiate it:
+
+```swift
+let overlay = ImageOverlay.instance 
+```
+
+
 ## KeyboardContentManager
 <div id="keyboard_content_manager"></div>
 
