@@ -40,9 +40,9 @@ Podfile example:
 platform :ios, '10.0'
 pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
+<div id ="nib_helper"></div>
 
 ## NibHelper
-<div id ="nib_helper"></div>
 
 *NibHelper* is based on UIView, UIViewController, UICollectionViewCell and UITableViewCell extensions. It is used for quick and easy views and cells instantiation.
 UICollectionViewCell and UITableViewCell extensions have a similar implementation.
