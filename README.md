@@ -17,6 +17,10 @@ SLEssentials is set of Swift utilities. It contains most of Swift staff that hav
 
 ## Requirements
 
+- iOS 10.0+
+- XCode 11+
+- Swift 5.0+
+
 ## Installation
 
 SLEssentials is available through [CocoaPods](https://cocoapods.org). To install
