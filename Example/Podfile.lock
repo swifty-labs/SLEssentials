@@ -1,0 +1,16 @@
+PODS:
+  - SLEssentials (0.1.0)
+
+DEPENDENCIES:
+  - SLEssentials (from `../`)
+
+EXTERNAL SOURCES:
+  SLEssentials:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SLEssentials: fc974708d316b703713b09382018ed43ead13aeb
+
+PODFILE CHECKSUM: 944108493e9bb8c4cd1c369439cee5057ca43bfc
+
+COCOAPODS: 1.9.3
