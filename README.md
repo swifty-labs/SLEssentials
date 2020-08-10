@@ -5,9 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 [![Platform](https://img.shields.io/cocoapods/p/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 
-## Example
+SLEssentials is set of Swift utilities. It contains most of Swift staff that have found a purpose in almost all iOS applications.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Modules
+
+- NibHelper
+- KeyboardContentManager
+- UIViewControllerEmbeding
 
 ## Requirements
 
