@@ -86,7 +86,59 @@ and now you can instatiate it:
 let overlay = ImageOverlay.instance 
 ```
 
+## KeyboardContentManager
 
+*KeyboardContentManager* modul contains actually two managers, *ConstraintKeyboardContentManager* and *ScrollViewKeyboardContentManager*, both implementing KeyboardManageable protocol. It purpose is to handle keyboard, in UIScrollView, when we use *ScrollViewKeyboardContentManager*, manipulating with content inset, and in UIView, when we use *ConstraintKeyboardContentManager*, maniputaing with view's bottom constraint.
+
+All we need to do is to register and unregister keyborad notifications:
+
+```swift
+import SLEssentials
+
+override func viewWillAppear(_ animated: Bool) {
+	super.viewWillAppear(animated)
+		
+	keyboardManager.registerForKeyboardNotifications()
+}
+	
+override func viewWillDisappear(_ animated: Bool) {
+	super.viewWillDisappear(animated)
+		
+	keyboardManager.unregisterForKeyboardNotifications()
+} 
+```
+
+Additional implementation is to use some of two manager's handlers:
+
+```swift
+keyboardManager.keyboardHides{ 
+   ...
+}
+
+keyboardManager.keyboardShows {
+   ...
+}
+```
+
+## UIViewControllerEmbeding
+
+*UIViewControllerEmbeding* is modul based on simple UIViewController extension and it's used for embeding UIViewController into UIView using constraints, or specifying controller's frame. User can unembed UIViewController also.
+
+```swift
+import SLEssentials
+
+@IBOutlet weak var viewContainer: UIView!
+ 
+ ...
+ 
+let controller = UIViewController() 
+
+embed(viewController: controller, in: viewContainer)
+
+embed(viewController: controller, withFrame: viewContainer.frame, in: viewContainer)
+
+controller.unembed()
+```
 
 ## Author
 
