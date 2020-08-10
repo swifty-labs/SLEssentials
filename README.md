@@ -7,7 +7,7 @@
 [![License](https://camo.githubusercontent.com/daefd168f1ad0b5702c984b445147c5a332f3a55/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f6c2f41757468656e7469636174696f6e4d616e616765722e7376673f7374796c653d666c6174)](https://github.com/swifty-labs/SLEssentials/blob/1.0.8/LICENSE)
 [![Platform](https://camo.githubusercontent.com/e578d111c7729fc5111f771f6a66e1035c01e562/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f702f41757468656e7469636174696f6e4d616e616765722e7376673f7374796c653d666c6174)](https://cocoapods.org/pods/SLEssentials)
 
-SLEssentials is set of Swift utilities. It contains most of Swift staff that have found a purpose in almost all iOS applications.
+**SLEssentials** is set of Swift utilities. It contains most of Swift staff that have found a purpose in almost all iOS applications.
 
 ## Modules
 
@@ -23,7 +23,7 @@ SLEssentials is set of Swift utilities. It contains most of Swift staff that hav
 
 ## Installation
 
-To integrate SLEssentials into your Xcode project, specify it in your Podfile:
+To integrate **SLEssentials** into your Xcode project, specify it in your Podfile:
 
 ```ruby
 platform :ios, '10.0'
@@ -32,7 +32,7 @@ pod 'SLEssentials', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 
 ### Subspecs
 
-There are multi subspecs available, like NibHelper, KeyboardContentManager, UIViewControllerEmbeding and others. It means, you can install one or more of the SLEssentials modules. By default, you get all modules, so, if you need specific module you must specify it.
+There are multi subspecs available, like *NibHelper, KeyboardContentManager, UIViewControllerEmbeding* and others. It means, you can install one or more of the **SLEssentials** modules. By default, you get all modules, so, if you need specific module you must specify it.
 
 Podfile example:
 
@@ -40,6 +40,54 @@ Podfile example:
 platform :ios, '10.0'
 pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
+
+## NibHelper
+
+*NibHelper* is based on UIView, UIViewController, UICollectionViewCell and UITableViewCell extensions. It is used for quick and easy views and cells instantiation. UICollectionViewCell and UITableViewCell extensions have a similar implementation.
+
+```swift
+import SLEssentials
+
+tableView.registerNib(TableCell.self)
+let cell: TableCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+```
+
+To create initial UIViewController instance using UIStoryboard:
+
+```swift
+import SLEssentials
+
+let controller = UINavigationController.initial() // it is implies that storyboard is Main 
+
+let controller =  UINavigationController.initial(fromStoryboardNamed: "Login") // for specified storyboard
+```
+
+To create UIViewController instance using UIStoryboard:
+
+```swift
+import SLEssentials
+
+let controller = SignUpController.instantiate(fromStoryboardNamed: "Login")
+```
+
+To create UIVew instance, first, your custom UIView have to implement ViewLoadable protocol:
+
+```swift
+import SLEssentials
+
+final class ImageOverlay: UIView, ViewLoadable {
+  ...
+}
+```
+
+and now you can instatiate it:
+
+```swift
+let overlay = ImageOverlay.instance 
+```
+
+
+
 ## Author
 
 vukasin-popovic, vukasin.popovic@swiftylabs.io
