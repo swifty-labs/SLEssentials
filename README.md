@@ -23,13 +23,23 @@ SLEssentials is set of Swift utilities. It contains most of Swift staff that hav
 
 ## Installation
 
-SLEssentials is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+To integrate SLEssentials into your Xcode project, specify it in your Podfile:
 
 ```ruby
-pod 'SLEssentials'
+platform :ios, '10.0'
+pod 'SLEssentials', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
 
+### Subspecs
+
+There are multi subspecs available, like NibHelper, KeyboardContentManager, UIViewControllerEmbeding and others. It means, you can install one or more of the SLEssentials modules. By default, you get all modules, so, if you need specific module you must specify it.
+
+Podfile example:
+
+```ruby
+platform :ios, '10.0'
+pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentials.gi
+```
 ## Author
 
 vukasin-popovic, vukasin.popovic@swiftylabs.io
