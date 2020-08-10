@@ -4,7 +4,7 @@
 
 [![CI Status](https://img.shields.io/travis/vukasin-popovic/SLEssentials.svg?style=flat)](https://travis-ci.org/vukasin-popovic/SLEssentials)
 [![Version](https://img.shields.io/cocoapods/v/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
-[![License](https://img.shields.io/cocoapods/l/SLEssentials.svg?style=flat)](https://github.com/swifty-labs/SLEssentials/blob/1.0.8/LICENSE)
+[![License](https://camo.githubusercontent.com/daefd168f1ad0b5702c984b445147c5a332f3a55/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f6c2f41757468656e7469636174696f6e4d616e616765722e7376673f7374796c653d666c6174](https://github.com/swifty-labs/SLEssentials/blob/1.0.8/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 
 SLEssentials is set of Swift utilities. It contains most of Swift staff that have found a purpose in almost all iOS applications.
