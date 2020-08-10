@@ -38,7 +38,7 @@ Podfile example:
 
 ```ruby
 platform :ios, '10.0'
-pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentials.gi
+pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
 ## Author
 
