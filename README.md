@@ -11,8 +11,8 @@
 
 ## Modules
 
-- NibHelper
-- KeyboardContentManager
+- [NibHelper](#NibHelper)
+- [KeyboardContentManager](#KeyboardContentManager)
 - [UIViewControllerEmbeding](#UIViewControllerEmbeding)
 
 ## Requirements
@@ -40,6 +40,8 @@ Podfile example:
 platform :ios, '10.0'
 pod 'SLEssentials/NibHelper', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
+
+<div id="NibHelper"></div>
 
 ## NibHelper
 
@@ -85,6 +87,8 @@ and now you can instatiate it:
 ```swift
 let overlay = ImageOverlay.instance 
 ```
+
+<div id="KeyboardContentManager"></div>
 
 ## KeyboardContentManager
 
