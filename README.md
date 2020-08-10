@@ -1,4 +1,4 @@
-<img src="https://avatars0.githubusercontent.com/u/67895642?s=400&u=4e7fe101556e810c541efa77b891de9e5b5d4642&v=4"  class="inline"/>
+<img src="https://avatars0.githubusercontent.com/u/67895642?s=400&u=4e7fe101556e810c541efa77b891de9e5b5d4642&v=4"  width="500" height="600" class="inline"/>
 
 # SLEssentials
 
