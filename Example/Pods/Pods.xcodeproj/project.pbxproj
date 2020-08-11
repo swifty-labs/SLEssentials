@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BCB2A7F3C07119B0B1A071797A67F4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		37F7EBC330EA1675EFC7D1736F467D80 /* Pods-SLEssentials_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1910CEBB2F974367C0E0C910DFF3812 /* Pods-SLEssentials_Tests-dummy.m */; };
-		456824B724E2C02100830F29 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456824B624E2C02100830F29 /* AuthenticationManager.swift */; };
+		4595481224E2F1E00063DE29 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4595481124E2F1E00063DE29 /* AuthenticationManager.swift */; };
 		892A2DE2BFAF665EF188E953F3D4F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		A03CEC04F78C2F3389C4780E3F4F8F5B /* SLEssentials-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273DC35B9EEA3122FDAE0CB70C887CA /* SLEssentials-dummy.m */; };
 		CD5FF54C24B71F8400B3DC73 /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5FF54524B71F8400B3DC73 /* StoryboardLoadable.swift */; };
@@ -46,7 +46,7 @@
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		379E9D29D66889378CBAAB05160BB801 /* Pods-SLEssentials_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SLEssentials_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3D8DF946BF0360ED4A6BBFB3BF948B52 /* SLEssentials-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SLEssentials-Info.plist"; sourceTree = "<group>"; };
-		456824B624E2C02100830F29 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		4595481124E2F1E00063DE29 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		4DE55345D1E8C6DE81F15622C1D782C6 /* Pods-SLEssentials_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SLEssentials_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		579AAE55E1FCA058447BDBE86A4BE4CE /* Pods-SLEssentials_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SLEssentials_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		58F65274A27B0E661FB55E4FC92D814C /* SLEssentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SLEssentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,9 +121,10 @@
 		456824B524E2BFE400830F29 /* AuthenticationManager */ = {
 			isa = PBXGroup;
 			children = (
-				456824B624E2C02100830F29 /* AuthenticationManager.swift */,
+				4595481124E2F1E00063DE29 /* AuthenticationManager.swift */,
 			);
-			path = AuthenticationManager;
+			name = AuthenticationManager;
+			path = SLEssentials/Classes/AuthenticationManager;
 			sourceTree = "<group>";
 		};
 		4FC25F37D9CA98C9287ECCF3013AA0DD /* Products */ = {
@@ -362,7 +363,7 @@
 				CD5FF55224B71F8400B3DC73 /* NibLoadable.swift in Sources */,
 				CD5FF54E24B71F8400B3DC73 /* NibReusable.swift in Sources */,
 				CD5FF54F24B71F8400B3DC73 /* UICollectionView+LoadingCell.swift in Sources */,
-				456824B724E2C02100830F29 /* AuthenticationManager.swift in Sources */,
+				4595481224E2F1E00063DE29 /* AuthenticationManager.swift in Sources */,
 				CD5FF54C24B71F8400B3DC73 /* StoryboardLoadable.swift in Sources */,
 				A03CEC04F78C2F3389C4780E3F4F8F5B /* SLEssentials-dummy.m in Sources */,
 				CD5FF55124B71F8400B3DC73 /* ViewLoadable.swift in Sources */,
