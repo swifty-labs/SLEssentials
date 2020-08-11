@@ -1,22 +1,36 @@
 //
 //  AuthenticationManager.swift
-//  erstembanking
+//  SLEssentials
 //
 //  Created by Slobodan on 03/07/2020.
-//  Copyright © 2020 Semos. All rights reserved.
+//  Copyright © 2020 SwiftyLabs. All rights reserved.
 //
 
 import Foundation
 import LocalAuthentication
 
-protocol AuthenticationManageable {
+public protocol AuthenticationManageable {
 	func biometricsType(with type: AuthenticationType) -> Result<BiometricType, Error>
 	func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> () )
 }
 
-enum BiometricType {
+public enum BiometricType {
 	case touchID
 	case faceID
+}
+
+public enum AuthenticationType {
+	case biometricsAndPasscode
+	case biometrics
+	
+	var policy: LAPolicy {
+		switch self {
+		case .biometricsAndPasscode:
+			return .deviceOwnerAuthentication
+		case .biometrics:
+			return .deviceOwnerAuthenticationWithBiometrics
+		}
+	}
 }
 
 enum AuthenticationError: Error {
@@ -35,33 +49,36 @@ enum AuthenticationError: Error {
 	case defaultError(Error)
 }
 
-enum AuthenticationType {
-	case biometricsAndPasscode
-	case biometrics
+public struct MTAuthenticationPresentOptions {
 	
-	var policy: LAPolicy {
-		switch self {
-		case .biometricsAndPasscode:
-			return .deviceOwnerAuthentication
-		case .biometrics:
-			return .deviceOwnerAuthenticationWithBiometrics
-		}
-	}
-}
-
-struct MTAuthenticationPresentOptions {
+	// MARK: - Properties
+	
 	var authenticationType: AuthenticationType
 	var reason: String
 	var cancelTitle: String?
 	var fallBackTitle: String?
+	
+	// MARK: - Initialization
+	
+	public init(authenticationType: AuthenticationType, reason: String, cancelTitle: String?, fallBackTitle: String?) {
+		self.authenticationType = authenticationType
+		self.reason = reason
+		self.cancelTitle = cancelTitle
+		self.fallBackTitle = fallBackTitle
+	}
+	
 }
 
-final class AuthenticationManager {
+public final class AuthenticationManager {
 	
 	// MARK: - Properties
 	
 	private let context = LAContext()
 	private var error: NSError?
+	
+	// MARK: - Initialization
+	
+	public init() {}
 	
 	// MARK: - Private methods
 	
@@ -146,7 +163,7 @@ final class AuthenticationManager {
 
 extension AuthenticationManager: AuthenticationManageable {
 	
-	func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> ()) {
+	public func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> ()) {
 		switch isAuthenticationAvailable(with: options.authenticationType) {
 		case .success:
 			requestAuthentication(with: options, completion: completion)
@@ -155,7 +172,7 @@ extension AuthenticationManager: AuthenticationManageable {
 		}
 	}
 	
-	func biometricsType(with type: AuthenticationType) -> Result<BiometricType, Error> {
+	public func biometricsType(with type: AuthenticationType) -> Result<BiometricType, Error> {
 		switch isAuthenticationAvailable(with: type) {
 		case .success:
 			guard #available(iOS 11.0, *) else {

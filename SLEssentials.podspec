@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SLEssentials'
-  s.version          = '1.0.7'
+  s.version          = '1.0.10'
   s.summary          = 'SLEssentials is set of Swift utilities'
 
 # This description is used to generate tags and improve search results.
@@ -24,13 +24,13 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/swifty-labs/SLEssentials'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'vukasin-popovic' => 'vukasin.popovic@swiftylabs.io' }
+  s.authors          = { 'vukasin-popovic' => 'vukasin.popovic@swiftylabs.io', 'slobodan-ristic' => 'slobodan.ristic@swiftylabs.io' }
   s.source           = { :git => 'https://github.com/swifty-labs/SLEssentials.git', :tag => s.version.to_s, :submodules => true }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
   s.swift_version = '5.0'
-  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'UIViewControllerEmbeding']
+  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'UIViewControllerEmbeding', 'AuthenticationManager']
   
   # s.resource_bundles = {
   #   'SLEssentials' => ['SLEssentials/Assets/*.png']
@@ -50,6 +50,10 @@ Pod::Spec.new do |s|
   
   s.subspec 'UIViewControllerEmbeding' do |ce|
     ce.source_files = 'SLEssentials/Classes/UIViewControllerEmbeding/*.swift'
+  end
+	
+	s.subspec 'AuthenticationManager' do |am|
+    am.source_files = 'SLEssentials/Classes/AuthenticationManager/*.swift'
   end
   
 end
