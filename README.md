@@ -182,9 +182,11 @@ Note: - For authentication with face ID must be included the NSFaceIDUsageDescri
 <string>Confirm your Face ID</string>
 ```
 
-cancelTitle - you can set a custom message for the Cancel button that appears in various alert views
+cancelTitle - set a custom message for the Cancel button that appears in various alert views
 
 fallBackTitle - title will be shown when first authentication attempt is failed
+
+If cancelTitle and fallBackTitle set nil, system provides default title.
 
 ```swift
 let reason = "Confirm your fingerprint"
