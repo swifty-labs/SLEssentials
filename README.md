@@ -151,12 +151,14 @@ controller.unembed()
 
 *AuthenticationManager* is a manager with which you can easily and simply determine whether the device supports biometrics (and if supported, which type of biometrics is available).
 
+
 Create instance of manager with protocol type 'AuthenticationManageable'
 ```swift
 import SLEssentials
  
 let authenticationManager: AuthenticationManageable = AuthenticationManager()
 ```
+
 
 With this instance you can use 2 functions:
 
@@ -170,7 +172,20 @@ case .failure(let error):
 }
 ```
 
-- present authentication to user. Function return error if authentication isn't available.
+- present authentication to user
+
+reason - display the reason for authentication with touch ID
+
+Note: - For authentication with face ID must be included the NSFaceIDUsageDescription key in your app's Info.plist file.
+```swift
+<key>NSFaceIDUsageDescription</key>
+<string>Confirm your Face ID</string>
+```
+
+cancelTitle - you can set a custom message for the Cancel button that appears in various alert views
+
+fallBackTitle - title will be shown when first authentication attempt is failed
+
 ```swift
 let reason = "Confirm your fingerprint"
 let cancelTitle = "Cancel"
