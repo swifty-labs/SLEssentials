@@ -155,12 +155,41 @@ Create instance of manager with protocol type 'AuthenticationManageable'
 ```swift
 import SLEssentials
  
- let authenticationManager: AuthenticationManageable = AuthenticationManager()
+let authenticationManager: AuthenticationManageable = AuthenticationManager()
+```
+
+With this instance you can use 2 functions:
+
+- check whether device support touch or face ID. Function return error if authentication isn't available.
+```swift
+switch authenticationManager.biometricsType(with: .biometricsAndPasscode) {
+case .success(let biometricType):
+	print(biometricType)
+case .failure(let error):
+	print(error)
+}
+```
+
+- present authentication to user. Function return error if authentication isn't available.
+```swift
+let reason = "Confirm your fingerprint"
+let cancelTitle = "Cancel"
+let presentOptions = MTAuthenticationPresentOptions(authenticationType: .biometricsAndPasscode, reason: reason, cancelTitle: cancelTitle, fallBackTitle: nil)
+
+authenticationManager.presentAuthenticationToUser(with: presentOptions) { result in
+	switch result {
+	case .success(let biometricType):
+		print(biometricType)
+	case .failure(let error):
+		print(error)
+	}
+}
 ```
 
 ## Authors
 
 vukasin-popovic, vukasin.popovic@swiftylabs.io
+
 slobodan-ristic, slobodan.ristic@swiftylabs.io
 
 ## License
