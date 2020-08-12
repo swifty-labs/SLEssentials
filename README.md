@@ -14,6 +14,7 @@
 - [NibHelper](#NibHelper)
 - [KeyboardContentManager](#KeyboardContentManager)
 - [UIViewControllerEmbeding](#UIViewControllerEmbeding)
+- [AuthenticationManager](#AuthenticationManager)
 
 ## Requirements
 
@@ -146,9 +147,21 @@ embed(viewController: controller, withFrame: viewContainer.frame, in: viewContai
 controller.unembed()
 ```
 
-## Author
+## AuthenticationManager
+
+*AuthenticationManager* is a manager with which you can easily and simply determine whether the device supports biometrics (and if supported, which type of biometrics is available).
+
+Create instance of manager with protocol type 'AuthenticationManageable'
+```swift
+import SLEssentials
+ 
+ let authenticationManager: AuthenticationManageable = AuthenticationManager()
+```
+
+## Authors
 
 vukasin-popovic, vukasin.popovic@swiftylabs.io
+slobodan-ristic, slobodan.ristic@swiftylabs.io
 
 ## License
 
