@@ -16,6 +16,10 @@ public final class TextTapManager {
 	private var textStorage: NSTextStorage?
 	private var attributedText: NSAttributedString?
 	
+	// MARK: - Init
+	
+	public init() {}
+	
 	// MARK: - Public methods
 	
 	public func setup(for label: UILabel, with attributedText: NSAttributedString) {
