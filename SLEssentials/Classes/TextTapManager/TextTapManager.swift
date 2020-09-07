@@ -11,10 +11,10 @@ public final class TextTapManager {
 	// MARK: - Properties
 	public var textTapHandler: ((NSAttributedString?) -> ())?
 	
-	private let layoutManager = NSLayoutManager()
-	private let textContainer = NSTextContainer(size: .zero)
-	private var textStorage: NSTextStorage?
-	private var attributedText: NSAttributedString?
+	let layoutManager = NSLayoutManager()
+	let textContainer = NSTextContainer(size: .zero)
+	var textStorage: NSTextStorage?
+	var attributedText: NSAttributedString?
 	
 	// MARK: - Init
 	
@@ -33,7 +33,7 @@ public final class TextTapManager {
 	// MARK: - Actions
 	
 	@objc
-	private func handleLabelTap(_ recognizer: UITapGestureRecognizer) {
+	func handleLabelTap(_ recognizer: UITapGestureRecognizer) {
 		guard let label = recognizer.view else { return }
 		let labelSize = label.bounds.size
 		textContainer.size = labelSize
@@ -52,27 +52,27 @@ public final class TextTapManager {
 	
 	// MARK: - Private methods
 	
-	private func setupLayoutManager() {
+	func setupLayoutManager() {
 		layoutManager.addTextContainer(textContainer)
 	}
 	
-	private func setupTextStorage(for attributedText: NSAttributedString) {
+	func setupTextStorage(for attributedText: NSAttributedString) {
 		textStorage = NSTextStorage(attributedString: attributedText)
 		textStorage?.addLayoutManager(layoutManager)
 	}
 	
-	private func setupTextContainer(for label: UILabel) {
+	func setupTextContainer(for label: UILabel) {
 		textContainer.lineFragmentPadding = 0.0
 		textContainer.lineBreakMode = label.lineBreakMode
 		textContainer.maximumNumberOfLines = label.numberOfLines
 	}
 	
-	private func setupTapGestureRecognizer(for label: UILabel) {
+	func setupTapGestureRecognizer(for label: UILabel) {
 		label.isUserInteractionEnabled = true
 		label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleLabelTap(_:))))
 	}
 	
-	private func textChunk(at index: Int, completion: ((NSAttributedString?) -> ())?) {
+	func textChunk(at index: Int, completion: ((NSAttributedString?) -> ())?) {
 		guard let attributedText = attributedText else {
 			completion?(nil)
 			return
