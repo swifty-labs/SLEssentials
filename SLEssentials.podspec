@@ -56,7 +56,7 @@ Pod::Spec.new do |s|
     am.source_files = 'SLEssentials/Classes/AuthenticationManager/*.swift'
   end
 	
-	s.subspec 'TextTapManager' do |am|
+	s.subspec 'TextTapManager' do |ttm|
     am.source_files = 'SLEssentials/Classes/TextTapManager/*.swift'
   end
   
