@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SLEssentials'
-  s.version          = '1.0.11'
+  s.version          = '1.0.12'
   s.summary          = 'SLEssentials is set of Swift utilities'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
   s.swift_version = '5.0'
-  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'UIViewControllerEmbeding', 'AuthenticationManager', 'TextTapManager']
+  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'AuthenticationManager', 'TextTapManager', 'Extensions']
   
   # s.resource_bundles = {
   #   'SLEssentials' => ['SLEssentials/Assets/*.png']
@@ -48,9 +48,9 @@ Pod::Spec.new do |s|
     kcm.source_files = 'SLEssentials/Classes/KeyboardContentManager/*.swift'
   end
   
-  s.subspec 'UIViewControllerEmbeding' do |ce|
-    ce.source_files = 'SLEssentials/Classes/UIViewControllerEmbeding/*.swift'
-  end
+	s.subspec 'Extensions' do |ex|
+		ex.source_files = 'SLEssentials/Classes/Extensions/*.swift'
+	end
 	
 	s.subspec 'AuthenticationManager' do |am|
     am.source_files = 'SLEssentials/Classes/AuthenticationManager/*.swift'
