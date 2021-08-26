@@ -33,7 +33,7 @@ public enum AuthenticationType {
 	}
 }
 
-enum AuthenticationError: Error {
+public enum AuthenticationError: Error {
 	case appCancel
 	case systemCancel
 	case userCancel
