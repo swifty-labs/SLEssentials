@@ -16,3 +16,9 @@ extension UITableViewCell: NibReusable {
 
 extension UICollectionViewCell: NibReusable {
 }
+
+extension UITableViewHeaderFooterView : NibReusable {
+}
+
+extension UICollectionReusableView: NibReusable {
+}
