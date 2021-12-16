@@ -1,6 +1,6 @@
 //
 //  Array+Sorting.swift
-//  StratosJets
+//  SLEssentials
 //
 //  Created by Vukasin Popovic on 14.12.21..
 //
