@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol KeyboardManageable: class {
+public protocol KeyboardManageable: AnyObject {
 	
 	// MARK: - Properties
 	
