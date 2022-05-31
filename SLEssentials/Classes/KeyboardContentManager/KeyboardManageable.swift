@@ -8,7 +8,7 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
+#if os(iOS)    
 public protocol KeyboardManageable: class {
 	
 	// MARK: - Properties
@@ -22,3 +22,4 @@ public protocol KeyboardManageable: class {
 	func registerForKeyboardNotifications()
 	func unregisterForKeyboardNotifications()
 }
+#endif
