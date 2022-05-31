@@ -8,7 +8,6 @@
 
 import UIKit
 
-#if os(iOS)
 public protocol KeyboardManageable: AnyObject {
 	
 	// MARK: - Properties
@@ -22,4 +21,3 @@ public protocol KeyboardManageable: AnyObject {
 	func registerForKeyboardNotifications()
 	func unregisterForKeyboardNotifications()
 }
-#endif
