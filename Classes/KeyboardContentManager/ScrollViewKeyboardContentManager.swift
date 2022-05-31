@@ -8,7 +8,7 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
+#if os(iOS)
 public final class  ScrollViewKeyboardContentManager: KeyboardManageable {
 	
 	// MARK: - Properties
@@ -56,3 +56,4 @@ public final class  ScrollViewKeyboardContentManager: KeyboardManageable {
 		scrollView?.scrollIndicatorInsets = .zero
 	}
 }
+#endif
