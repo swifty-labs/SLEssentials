@@ -9,7 +9,6 @@
 import Foundation
 import LocalAuthentication
 
-#if os(iOS)
 public protocol AuthenticationManageable {
 	func biometricsType(with type: AuthenticationType) -> Result<BiometricType, Error>
 	func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> () )
@@ -193,4 +192,3 @@ extension AuthenticationManager: AuthenticationManageable {
 	}
 		
 }
-#endif
