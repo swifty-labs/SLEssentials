@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 10.0, *)
 public final class  ScrollViewKeyboardContentManager: KeyboardManageable {
 	
 	// MARK: - Properties
