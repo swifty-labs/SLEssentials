@@ -9,19 +9,19 @@
 import Foundation
 import LocalAuthentication
 
-@available(iOS 10, *)
+
 public protocol AuthenticationManageable {
 	func biometricsType(with type: AuthenticationType) -> Result<BiometricType, Error>
 	func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> () )
 }
 
-@available(iOS 10, *)
+
 public enum BiometricType {
 	case touchID
 	case faceID
 }
 
-@available(iOS 10, *)
+
 public enum AuthenticationType {
 	case biometricsAndPasscode
 	case biometrics
@@ -36,7 +36,7 @@ public enum AuthenticationType {
 	}
 }
 
-@available(iOS 10, *)
+
 enum AuthenticationError: Error {
 	case appCancel
 	case systemCancel
@@ -53,7 +53,7 @@ enum AuthenticationError: Error {
 	case defaultError(Error)
 }
 
-@available(iOS 10, *)
+
 public struct MTAuthenticationPresentOptions {
 	
 	// MARK: - Properties
@@ -74,7 +74,7 @@ public struct MTAuthenticationPresentOptions {
 	
 }
 
-@available(iOS 10, *)
+
 public final class AuthenticationManager {
 	
 	// MARK: - Properties
