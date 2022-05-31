@@ -8,7 +8,7 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
+#if os(iOS)
 public final class ConstraintKeyboardContentManager: KeyboardManageable {
 	
 	// MARK: - Properties
@@ -59,3 +59,4 @@ public final class ConstraintKeyboardContentManager: KeyboardManageable {
 		})
 	}
 }
+#endif
