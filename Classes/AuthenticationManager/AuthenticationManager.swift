@@ -14,10 +14,12 @@ public protocol AuthenticationManageable {
 	func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> () )
 }
 
+
 public enum BiometricType {
 	case touchID
 	case faceID
 }
+
 
 public enum AuthenticationType {
 	case biometricsAndPasscode
@@ -32,6 +34,7 @@ public enum AuthenticationType {
 		}
 	}
 }
+
 
 enum AuthenticationError: Error {
 	case appCancel
@@ -48,6 +51,7 @@ enum AuthenticationError: Error {
 	case notSupported
 	case defaultError(Error)
 }
+
 
 public struct MTAuthenticationPresentOptions {
 	
@@ -68,6 +72,7 @@ public struct MTAuthenticationPresentOptions {
 	}
 	
 }
+
 
 public final class AuthenticationManager {
 	
