@@ -20,7 +20,7 @@
 ## Requirements
 
 - iOS 10.0+
-- tvOS 10.0+
+- tvOS 15.0+
 - XCode 11+
 - Swift 5.0+
 
@@ -208,7 +208,9 @@ authenticationManager.presentAuthenticationToUser(with: presentOptions) { result
 
 ## tvOS
 
-tvOS is a module that includes Extensions, NibHelper and TextTapManager subspecs.
+tvOS is a module where all modules are included except KeyboardContentManager and AuthenticationManager
+
+Podfile:
 
 ```ruby
 platform :tvos, '15.0'
