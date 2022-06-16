@@ -208,7 +208,7 @@ authenticationManager.presentAuthenticationToUser(with: presentOptions) { result
 
 ## tvOS
 
-tvOS is module which include Extensions, NibHelper and TextTapManager subspecs.
+tvOS is a module that includes Extensions, NibHelper and TextTapManager subspecs.
 
 ```ruby
 platform :tvos, '15.0'
