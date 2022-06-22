@@ -217,11 +217,44 @@ platform :tvos, '15.0'
 pod 'SLEssentials/tvOS', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
 
+## Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+
+SLEssentials support SwiftPM from version 5.6.0. To use SwiftPM, you should use Xcode 11+ to open your project. Click File -> Add Packages, enter [SLEssentials](https://github.com/swifty-labs/SLEssentials) repo's URL.
+
+Once you have your Swift package set up, adding SLEssentials as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/swifty-labs/SLEssentials")
+]
+```
+If you want to use the basic functions, you need to import SLEssentials.
+
+```swift
+import SLEssentials
+```
+
+If you want to use functions for iOS, you need to import iOS.
+
+```swift
+import iOS
+```
+
+If you want to use function for tvOS, you need to import only SLEssentials.
+
+```swift
+import SLEssentials
+```
+
 ## Authors
 
 vukasin-popovic, vukasin.popovic@swiftylabs.io
 
 slobodan-ristic, slobodan.ristic@swiftylabs.io
+
+milos-stankovic, milos.stankovic@swiftylabs.io
 
 ## License
 
