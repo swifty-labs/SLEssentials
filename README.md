@@ -228,12 +228,12 @@ Once you have your Swift package set up, adding SLEssentials as a dependency is 
 
 ```swift
 dependencies: [
-    .package(
+	.package(
 		name: "SLEssentials",
 		url: "https://github.com/swifty-labs/SLEssentials"
-		),
+	),
 
-	 // Any other dependencies you have...
+	// Any other dependencies you have...
 ],
 ```
 Then, in any target that depends on a SLEssentials product, add it to the dependencies array of that target:
