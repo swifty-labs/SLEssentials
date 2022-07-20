@@ -3,9 +3,10 @@
 # SLEssentials
 
 [![CI Status](https://img.shields.io/travis/vukasin-popovic/SLEssentials.svg?style=flat)](https://travis-ci.org/vukasin-popovic/SLEssentials)
-[![Version](https://img.shields.io/cocoapods/v/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
 [![License](https://camo.githubusercontent.com/daefd168f1ad0b5702c984b445147c5a332f3a55/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f6c2f41757468656e7469636174696f6e4d616e616765722e7376673f7374796c653d666c6174)](https://github.com/swifty-labs/SLEssentials/blob/1.0.8/LICENSE)
-[![Platform](https://camo.githubusercontent.com/e578d111c7729fc5111f771f6a66e1035c01e562/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f702f41757468656e7469636174696f6e4d616e616765722e7376673f7374796c653d666c6174)](https://cocoapods.org/pods/SLEssentials)
+[![Platforms](https://img.shields.io/badge/Platforms-iOS_tvOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-iOS_tvOS-Green?style=flat-square)
+[![Version](https://img.shields.io/cocoapods/v/SLEssentials.svg?style=flat)](https://cocoapods.org/pods/SLEssentials)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 
 **SLEssentials** is set of Swift utilities. It contains most of Swift staff that have found a purpose in almost all iOS and tvOS applications.
 
@@ -217,11 +218,61 @@ platform :tvos, '15.0'
 pod 'SLEssentials/tvOS', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 ```
 
+## Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+
+SLEssentials support SwiftPM from version 5.6.0. To use SwiftPM, you should use Xcode 11+ to open your project. Click File -> Add Packages, enter [SLEssentials](https://github.com/swifty-labs/SLEssentials) repo's URL.
+
+Once you have your Swift package set up, adding SLEssentials as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+	.package(
+		name: "SLEssentials",
+		url: "https://github.com/swifty-labs/SLEssentials"
+	),
+
+	// Any other dependencies you have...
+],
+```
+Then, in any target that depends on a SLEssentials product, add it to the dependencies array of that target:
+
+```swift
+.target(
+  name: "MyTargetName",
+  dependencies: [
+    // The product(s) you want (e.g. SLEssentials).
+    .product(name: "SLEssentials", package: "SLEssentials"),
+  ]
+),
+```
+
+If you want to use the basic functions, you need to import SLEssentials.
+
+```swift
+import SLEssentials
+```
+
+If you want to use functions for iOS, you need to import iOS.
+
+```swift
+import iOS
+```
+
+If you want to use function for tvOS, you need to import only SLEssentials.
+
+```swift
+import SLEssentials
+```
+
 ## Authors
 
 vukasin-popovic, vukasin.popovic@swiftylabs.io
 
 slobodan-ristic, slobodan.ristic@swiftylabs.io
+
+milos-stankovic, milos.stankovic@swiftylabs.io
 
 ## License
 
