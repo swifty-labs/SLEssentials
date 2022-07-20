@@ -14,24 +14,24 @@ enum LogEvent: String {
 	case `deinit` = "💨"
 }
 
-enum LogType {
+public enum LogType {
 	case date, featureName(String), fileName, methodName, lineNumber
 }
 
-struct Logger {
+public struct Logger {
 	// MARK: - Properties
 
 	private var logTypes: [LogType]
 
 	// MARK: - Initializaion
 
-	init(logTypes: [LogType] = [.date, .fileName, .methodName, .lineNumber]) {
+	public init(logTypes: [LogType] = [.date, .fileName, .methodName, .lineNumber]) {
 		self.logTypes = logTypes
 	}
 
 	// MARK: - Static methods
 
-	static func logDeinit(filePath: String = #file) {
+	public static func logDeinit(filePath: String = #file) {
 		print("\(LogEvent.deinit.rawValue) DEINIT: \(fileName(fromFilePath: filePath))")
 	}
 
@@ -42,7 +42,7 @@ struct Logger {
 
 	// MARK: - Public methods
 
-	func log(filePath: String = #file, methodName: String = #function, lineNumber: Int = #line, message: String? = nil, error: Error? = nil) {
+	public func log(filePath: String = #file, methodName: String = #function, lineNumber: Int = #line, message: String? = nil, error: Error? = nil) {
 		var output = ""
 		output += error == nil ? LogEvent.debug.rawValue : LogEvent.error.rawValue
 		for type in logTypes {
