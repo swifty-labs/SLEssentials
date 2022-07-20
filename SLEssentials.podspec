@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.tvos.deployment_target = '15.0'
   s.swift_version = '5.0'
-  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'AuthenticationManager', 'TextTapManager', 'Extensions', 'Loger']
+  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'AuthenticationManager', 'TextTapManager', 'Extensions', 'Logger']
   
   # s.resource_bundles = {
   #   'SLEssentials' => ['SLEssentials/Assets/*.png']
@@ -61,11 +61,11 @@ Pod::Spec.new do |s|
     ttm.source_files = 'SLEssentials/Classes/TextTapManager/*.swift'
    end
   
-   s.subspec 'Loger' do |lo|
+   s.subspec 'Logger' do |lo|
     lo.source_files = 'SLEssentials/Classes/Loger/*.swift'
    end
 
    s.subspec 'tvOS' do |tv|
-    tv.source_files = 'SLEssentials/Classes/Extensions/*.swift', 'SLEssentials/Classes/NibHelper/*.swift', 'SLEssentials/Classes/TextTapManager/*.swift', 'SLEssentials/Classes/Loger/*.swift'
+    tv.source_files = 'SLEssentials/Classes/Extensions/*.swift', 'SLEssentials/Classes/NibHelper/*.swift', 'SLEssentials/Classes/TextTapManager/*.swift', 'SLEssentials/Classes/Logger/*.swift'
    end	
 end
