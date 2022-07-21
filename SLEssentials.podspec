@@ -42,30 +42,30 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
   
   s.subspec 'NibHelper' do |nh|
-    nh.source_files = 'SLEssentials/Sources/SLEssentials/NibHelper/*.swift'
+    nh.source_files = 'Sources/SLEssentials/NibHelper/*.swift'
   end
   
   s.subspec 'KeyboardContentManager' do |kcm|
-    kcm.source_files = 'SLEssentials/Sources/iOS/KeyboardContentManager/*.swift'
+    kcm.source_files = 'Sources/iOS/KeyboardContentManager/*.swift'
   end
   
   s.subspec 'Extensions' do |ex|
-   ex.source_files = 'SLEssentials/Sources/SLEssentials/Extensions/*.swift'
+   ex.source_files = 'Sources/SLEssentials/Extensions/*.swift'
   end
 	
    s.subspec 'AuthenticationManager' do |am|
-    am.source_files = 'SLEssentials/Sources/iOS/AuthenticationManager/*.swift'
+    am.source_files = 'Sources/iOS/AuthenticationManager/*.swift'
    end
 	
    s.subspec 'TextTapManager' do |ttm|
-    ttm.source_files = 'SLEssentials/Sources/SLEssentials/TextTapManager/*.swift'
+    ttm.source_files = 'Sources/SLEssentials/TextTapManager/*.swift'
    end
   
    s.subspec 'Logger' do |lo|
-    lo.source_files = 'SLEssentials/Sources/SLEssentials/Logger/*.swift'
+    lo.source_files = 'Sources/SLEssentials/Logger/*.swift'
    end
 
    s.subspec 'tvOS' do |tv|
-    tv.source_files = 'SLEssentials/Sources/SLEssentials/Extensions/*.swift', 'SLEssentials/Sources/SLEssentials/NibHelper/*.swift', 'SLEssentials/Sources/SLEssentials/TextTapManager/*.swift', 'SLEssentials/Sources/SLEssentials/Logger/*.swift'
+    tv.source_files = 'Sources/SLEssentials/Extensions/*.swift', 'Sources/SLEssentials/NibHelper/*.swift', 'Sources/SLEssentials/TextTapManager/*.swift', 'Sources/SLEssentials/Logger/*.swift'
    end	
 end
