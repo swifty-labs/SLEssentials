@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.tvos.deployment_target = '15.0'
   s.swift_version = '5.0'
-  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'AuthenticationManager', 'TextTapManager', 'Extensions']
+  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'AuthenticationManager', 'TextTapManager', 'Extensions', 'Logger']
   
   # s.resource_bundles = {
   #   'SLEssentials' => ['SLEssentials/Assets/*.png']
@@ -42,26 +42,30 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
   
   s.subspec 'NibHelper' do |nh|
-    nh.source_files = 'SLEssentials/Classes/NibHelper/*.swift'
+    nh.source_files = 'Sources/SLEssentials/NibHelper/*.swift'
   end
   
   s.subspec 'KeyboardContentManager' do |kcm|
-    kcm.source_files = 'SLEssentials/Classes/KeyboardContentManager/*.swift'
+    kcm.source_files = 'Sources/iOS/KeyboardContentManager/*.swift'
   end
   
   s.subspec 'Extensions' do |ex|
-   ex.source_files = 'SLEssentials/Classes/Extensions/*.swift'
+   ex.source_files = 'Sources/SLEssentials/Extensions/*.swift'
   end
 	
    s.subspec 'AuthenticationManager' do |am|
-    am.source_files = 'SLEssentials/Classes/AuthenticationManager/*.swift'
+    am.source_files = 'Sources/iOS/AuthenticationManager/*.swift'
    end
 	
    s.subspec 'TextTapManager' do |ttm|
-    ttm.source_files = 'SLEssentials/Classes/TextTapManager/*.swift'
+    ttm.source_files = 'Sources/SLEssentials/TextTapManager/*.swift'
    end
   
+   s.subspec 'Logger' do |lo|
+    lo.source_files = 'Sources/SLEssentials/Logger/*.swift'
+   end
+
    s.subspec 'tvOS' do |tv|
-    tv.source_files = 'SLEssentials/Classes/Extensions/*.swift', 'SLEssentials/Classes/NibHelper/*.swift', 'SLEssentials/Classes/TextTapManager/*.swift'
+    tv.source_files = 'Sources/SLEssentials/Extensions/*.swift', 'Sources/SLEssentials/NibHelper/*.swift', 'Sources/SLEssentials/TextTapManager/*.swift', 'Sources/SLEssentials/Logger/*.swift'
    end	
 end
