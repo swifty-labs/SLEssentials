@@ -66,6 +66,6 @@ Pod::Spec.new do |s|
    end
 
    s.subspec 'tvOS' do |tv|
-    tv.source_files = 'SLEssentials/Sources/SLEssentials/Extensions/*.swift', 'SLEssentials/Sources/SLEssentials/NibHelper/*.swift', ''SLEssentials/Sources/SLEssentials/TextTapManager/*.swift', 'SLEssentials/Sources/SLEssentials/Logger/*.swift'
+    tv.source_files = 'SLEssentials/Sources/SLEssentials/Extensions/*.swift', 'SLEssentials/Sources/SLEssentials/NibHelper/*.swift', 'SLEssentials/Sources/SLEssentials/TextTapManager/*.swift', 'SLEssentials/Sources/SLEssentials/Logger/*.swift'
    end	
 end
