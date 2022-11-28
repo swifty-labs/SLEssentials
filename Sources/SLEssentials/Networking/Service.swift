@@ -107,31 +107,31 @@ public class Service<T: Decodable> {
 // MARK: - Routable
 
 extension Service: Routable {
-	var path: String {
+	public var path: String {
 		serviceable.urlPath
 	}
 	
-	var url: URL? {
+	public var url: URL? {
 		urlAddress
 	}
 	
-	var method: HttpMethod {
+	public var method: HttpMethod {
 		serviceable.httpMethod
 	}
 	
-	var encoding: ParamsEncoding {
+	public var encoding: ParamsEncoding {
 		serviceable.paramEncoding
 	}
 	
-	var headers: [HttpHeader]? {
+	public var headers: [HttpHeader]? {
 		serviceable.httpHeaders
 	}
 	
-	var parameters: Parameters? {
+	public var parameters: Parameters? {
 		serviceable.params
 	}
 	
-	var queryItems: [URLQueryItem]? {
+	public var queryItems: [URLQueryItem]? {
 		serviceable.items
 	}
 }
