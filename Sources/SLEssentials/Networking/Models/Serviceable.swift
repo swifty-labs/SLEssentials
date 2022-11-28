@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Serviceable {
+public struct Serviceable {
 	var scheme: Scheme = .secure
 	var baseUrl: String
 	var urlPath: String

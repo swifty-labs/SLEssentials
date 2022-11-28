@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HttpHeader {
+public struct HttpHeader {
 	public let name: String
 	public let value: String
 

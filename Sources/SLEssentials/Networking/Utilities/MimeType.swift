@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MimeType: String {
+public enum MimeType: String {
 	case applicationJson = "application/json"
 	case urlEncoded = "application/x-www-form-urlencoded"
 }

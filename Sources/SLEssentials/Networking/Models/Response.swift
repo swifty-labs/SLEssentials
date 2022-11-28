@@ -8,7 +8,7 @@
 import Foundation
 
 
-class Response: Decodable {
+public class Response: Decodable {
 	let message: String?
 	let status: Int?
 }
