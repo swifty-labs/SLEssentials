@@ -39,7 +39,8 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+
+  s.dependency 'Alamofire'
   
   s.subspec 'NibHelper' do |nh|
     nh.source_files = 'Sources/SLEssentials/NibHelper/*.swift'
@@ -67,5 +68,9 @@ Pod::Spec.new do |s|
 
    s.subspec 'tvOS' do |tv|
     tv.source_files = 'Sources/SLEssentials/Extensions/*.swift', 'Sources/SLEssentials/NibHelper/*.swift', 'Sources/SLEssentials/TextTapManager/*.swift', 'Sources/SLEssentials/Logger/*.swift'
-   end	
+   end
+   
+   s.subspec 'Networking' do |net|
+    net.source_files = 'Sources/SLEssentials/Networking/*.swift'
+   end
 end

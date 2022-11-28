@@ -12,6 +12,9 @@ let package = Package(
 	products: [
 		.library(name: "SLEssentials", targets: ["SLEssentials", "iOS"]),
 	],
+	dependencies: [
+		.package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.6.1"))
+	],
 	targets: [
 		.target(
 			name: "SLEssentials"
