@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Scheme: String {
+enum Scheme: String {
 	case notSecure = "http"
 	case secure = "https"
 }

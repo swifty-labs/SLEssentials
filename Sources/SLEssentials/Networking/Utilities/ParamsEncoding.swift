@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ParamsEncoding {
+enum ParamsEncoding {
 	case url
 	case json
 }
