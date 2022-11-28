@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-extension DataRequest {
+public extension DataRequest {
 	public func responseObject<T: Decodable>(completion: @escaping (Result<T, NetworkError>) -> ()) {
 		responseDecodable(completionHandler: { [weak self] response in
 			guard let self else { return }

@@ -49,6 +49,7 @@ public class Service<T: Decodable> {
 		}
 	}
 	
+	@available(iOS 13.0.0, *)
 	var object: AnyPublisher<T, NetworkError>? {
 		requestObject.request?.publishDecodable(type: T.self)
 			.value()
@@ -56,6 +57,7 @@ public class Service<T: Decodable> {
 			.eraseToAnyPublisher()
 	}
 	
+	@available(iOS 13.0.0, *)
 	var array: AnyPublisher<[T], NetworkError>? {
 		requestObject.request?.publishDecodable(type: [T].self)
 			.value()
@@ -63,6 +65,7 @@ public class Service<T: Decodable> {
 			.eraseToAnyPublisher()
 	}
 	
+	@available(iOS 13.0.0, *)
 	var string: AnyPublisher<String, NetworkError>? {
 		requestObject.request?.publishString()
 			.value()

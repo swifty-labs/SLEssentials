@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension String {
+public extension String {
 	public var withoutSpaces: String {
 		self.replacingOccurrences(of: " ", with: "")
 	}

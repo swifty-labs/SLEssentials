@@ -9,11 +9,11 @@ import Foundation
 
 public protocol Routable {
 	associatedtype T: Decodable
-	var path: String { get }
-	var url: URL? { get }
-	var method: HttpMethod { get }
-	var encoding: ParamsEncoding { get }
-	var headers: [HttpHeader]? { get }
-	var parameters: Parameters? { get }
-	var queryItems: [URLQueryItem]? { get }
+	public var path: String { get }
+	public var url: URL? { get }
+	public var method: HttpMethod { get }
+	public var encoding: ParamsEncoding { get }
+	public var headers: [HttpHeader]? { get }
+	public var parameters: Parameters? { get }
+	public var queryItems: [URLQueryItem]? { get }
 }
