@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-typealias VoidReturnClosure<T> = (T) -> ()
+public typealias VoidReturnClosure<T> = (T) -> ()
 public typealias Parameters = [String: Any]
 
 open class Service<T: Decodable> {
@@ -75,12 +75,12 @@ open class Service<T: Decodable> {
 	
 	// MARK: - Initialization
 	
-	init(serviceable: Serviceable) {
+	public init(serviceable: Serviceable) {
 		self.serviceable = serviceable
 		self.urlAddress = createUrl
 	}
 	
-	init?(urlString: String) {
+	public init?(urlString: String) {
 		guard let url = URL(string: urlString.withoutSpaces) else { return nil }
 		serviceable = Serviceable(baseUrl: "", urlPath: "")
 		urlAddress = url

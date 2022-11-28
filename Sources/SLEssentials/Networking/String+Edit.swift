@@ -8,11 +8,11 @@
 import UIKit
 
 public extension String {
-	public var withoutSpaces: String {
+	var withoutSpaces: String {
 		self.replacingOccurrences(of: " ", with: "")
 	}
 	
-	public var isValidUrl: Bool {
+	var isValidUrl: Bool {
 		if let url = URL(string: self) {
 			return UIApplication.shared.canOpenURL(url)
 		}

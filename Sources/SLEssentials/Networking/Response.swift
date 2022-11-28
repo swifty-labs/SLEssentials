@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Response: Decodable {
+open class Response: Decodable {
 	let message: String?
 	let status: Int?
 }
