@@ -8,10 +8,10 @@
 import Foundation
 import Combine
 
-typealias Parameters = [String: Any]
 typealias VoidReturnClosure<T> = (T) -> ()
+public typealias Parameters = [String: Any]
 
-public class Service<T: Decodable> {
+open class Service<T: Decodable> {
 	// MARK: - Properties
 	
 	private lazy var requestObject = Request(routable: self)
@@ -29,28 +29,28 @@ public class Service<T: Decodable> {
 	}
 	
 	@available(iOS 13.0.0, *)
-	var consumeObject: T? {
+	public var consumeObject: T? {
 		get async throws {
 			try await requestObject.request?.serializingDecodable(T.self).value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	var consumeArray: [T]? {
+	public var consumeArray: [T]? {
 		get async throws {
 			try await requestObject.request?.serializingDecodable([T].self).value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	var consumeString: String? {
+	public var consumeString: String? {
 		get async throws {
 			try await requestObject.request?.serializingString().value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	var object: AnyPublisher<T, NetworkError>? {
+	public var object: AnyPublisher<T, NetworkError>? {
 		requestObject.request?.publishDecodable(type: T.self)
 			.value()
 			.mapError { NetworkError.alamofire($0) }
@@ -58,7 +58,7 @@ public class Service<T: Decodable> {
 	}
 	
 	@available(iOS 13.0.0, *)
-	var array: AnyPublisher<[T], NetworkError>? {
+	public var array: AnyPublisher<[T], NetworkError>? {
 		requestObject.request?.publishDecodable(type: [T].self)
 			.value()
 			.mapError { NetworkError.alamofire($0) }
@@ -66,7 +66,7 @@ public class Service<T: Decodable> {
 	}
 	
 	@available(iOS 13.0.0, *)
-	var string: AnyPublisher<String, NetworkError>? {
+	public var string: AnyPublisher<String, NetworkError>? {
 		requestObject.request?.publishString()
 			.value()
 			.mapError { NetworkError.alamofire($0) }
@@ -88,17 +88,17 @@ public class Service<T: Decodable> {
 	
 	// MARK: - Public methods
 	
-	func consumeObject(completion: VoidReturnClosure<Result<T, NetworkError>>?) {
+	public func consumeObject(completion: VoidReturnClosure<Result<T, NetworkError>>?) {
 		guard let completion = completion else { return }
 		requestObject.request?.validate().responseObject(completion: completion)
 	}
 	
-	func consumeArray(completion: VoidReturnClosure<Result<[T], NetworkError>>?) {
+	public func consumeArray(completion: VoidReturnClosure<Result<[T], NetworkError>>?) {
 		guard let completion = completion else { return }
 		requestObject.request?.validate().responseArray(completion: completion)
 	}
 	
-	func consumeString(completion: VoidReturnClosure<Result<String, NetworkError>>?) {
+	public func consumeString(completion: VoidReturnClosure<Result<String, NetworkError>>?) {
 		guard let completion = completion else { return }
 		requestObject.request?.validate().responseString(completion: completion)
 	}
@@ -106,32 +106,32 @@ public class Service<T: Decodable> {
 
 // MARK: - Routable
 
-extension Service: Routable {
-	public var path: String {
+public extension Service: Routable {
+	var path: String {
 		serviceable.urlPath
 	}
 	
-	public var url: URL? {
+	var url: URL? {
 		urlAddress
 	}
 	
-	public var method: HttpMethod {
+	var method: HttpMethod {
 		serviceable.httpMethod
 	}
 	
-	public var encoding: ParamsEncoding {
+	var encoding: ParamsEncoding {
 		serviceable.paramEncoding
 	}
 	
-	public var headers: [HttpHeader]? {
+	var headers: [HttpHeader]? {
 		serviceable.httpHeaders
 	}
 	
-	public var parameters: Parameters? {
+	var parameters: Parameters? {
 		serviceable.params
 	}
 	
-	public var queryItems: [URLQueryItem]? {
+	var queryItems: [URLQueryItem]? {
 		serviceable.items
 	}
 }
