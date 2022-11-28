@@ -11,7 +11,7 @@ import Combine
 typealias Parameters = [String: Any]
 typealias VoidReturnClosure<T> = (T) -> ()
 
-public open class Service<T: Decodable> {
+open class Service<T: Decodable> {
 	// MARK: - Properties
 	
 	private lazy var requestObject = Request(routable: self)
