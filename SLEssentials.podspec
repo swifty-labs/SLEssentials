@@ -71,6 +71,6 @@ Pod::Spec.new do |s|
    end
    
    s.subspec 'Networking' do |net|
-    net.source_files = 'Sources/SLEssentials/Networking/*.swift', 'Sources/SLEssentials/Networking/Models/*.swift', 'Sources/SLEssentials/Utilities/Extensions/*.swift', 'Sources/SLEssentials/Utilities/*.swift'
+    net.source_files = 'Sources/SLEssentials/Networking/Models/*.swift', 'Sources/SLEssentials/Utilities/Extensions/*.swift'
    end
 end
