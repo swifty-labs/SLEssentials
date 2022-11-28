@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BEError {
+public struct BEError {
 	let statusCode: Int
 	let message: String?
 

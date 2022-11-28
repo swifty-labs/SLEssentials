@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Routable {
+public protocol Routable {
 	associatedtype T: Decodable
 	var path: String { get }
 	var url: URL? { get }

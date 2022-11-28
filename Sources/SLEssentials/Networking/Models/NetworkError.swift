@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkError {
+public enum NetworkError {
 	case general
 	case alamofire(Error)
 	case mapping

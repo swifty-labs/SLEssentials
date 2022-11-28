@@ -9,21 +9,21 @@ import Foundation
 import Alamofire
 
 extension DataRequest {
-	func responseObject<T: Decodable>(completion: @escaping (Result<T, NetworkError>) -> ()) {
+	public func responseObject<T: Decodable>(completion: @escaping (Result<T, NetworkError>) -> ()) {
 		responseDecodable(completionHandler: { [weak self] response in
 			guard let self else { return }
 			completion(self.responseObject(from: response))
 		})
 	}
 	
-	func responseArray<T: Decodable>(completion: @escaping (Result<[T], NetworkError>) -> ()) {
+	public func responseArray<T: Decodable>(completion: @escaping (Result<[T], NetworkError>) -> ()) {
 		responseDecodable(completionHandler: { [weak self] response in
 			guard let self else { return }
 			completion(self.responseArray(from: response))
 		})
 	}
 	
-	func responseString(completion: @escaping (Result<String, NetworkError>) -> ()) {
+	public func responseString(completion: @escaping (Result<String, NetworkError>) -> ()) {
 		responseString(completionHandler: {[weak self] response in
 			guard let self else { return }
 			completion(self.responseString(from: response))

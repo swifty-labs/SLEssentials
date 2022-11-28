@@ -11,7 +11,7 @@ import Combine
 typealias Parameters = [String: Any]
 typealias VoidReturnClosure<T> = (T) -> ()
 
-public class Service<T: Decodable> {
+public public class Service<T: Decodable> {
 	// MARK: - Properties
 	
 	private lazy var requestObject = Request(routable: self)
@@ -28,18 +28,21 @@ public class Service<T: Decodable> {
 		return url
 	}
 	
+	@available(iOS 13.0.0, *)
 	var consumeObject: T? {
 		get async throws {
 			try await requestObject.request?.serializingDecodable(T.self).value
 		}
 	}
 	
+	@available(iOS 13.0.0, *)
 	var consumeArray: [T]? {
 		get async throws {
 			try await requestObject.request?.serializingDecodable([T].self).value
 		}
 	}
 	
+	@available(iOS 13.0.0, *)
 	var consumeString: String? {
 		get async throws {
 			try await requestObject.request?.serializingString().value

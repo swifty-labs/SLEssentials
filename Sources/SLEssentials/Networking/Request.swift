@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-final class Request<T: Routable> {
+public final class Request<T: Routable> {
 	// MARK: - Properties
 	
 	var request: DataRequest? {
