@@ -17,7 +17,8 @@ let package = Package(
 	],
 	targets: [
 		.target(
-			name: "SLEssentials"
+			name: "SLEssentials",
+			dependencies: ["Alamofire"]
 		),
 		.target(
 			name: "iOS",
