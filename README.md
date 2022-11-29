@@ -123,6 +123,12 @@ struct User: Decodable {
 	var id: String
 	var name: String
 	var nickName: String
+
+	private enum CodingKeys: String, CodingKey {
+		case id = "coding key"
+		case name = "coding key"
+		case nickName = "coding key"
+	}
 }
 
 final class LoginService: Service<User> {
@@ -142,15 +148,15 @@ let loginService = LoginService(...)
 
 // completion handler example
 loginService?.consumeObject { response in
-			// handle response
+	// handle response
 }
 // or
 loginService?.consumeArray { response in
-			// handle response
+	// handle response
 }
 // or
 loginService?.consumeString { response in
-			// handle response
+	// handle response
 }
 
 // async/await example
@@ -164,34 +170,34 @@ do {
 	// handle response 
 }
 catch {
-		// handle error
+	// handle error
 	}
 }		
 
 // combine example
 loginService?.object?
-			.sink { response in
-				// handle response
-			} receiveValue: { value in
-				// handle received value
-			}
-			.store(in: &subscriptions)
+	.sink { response in
+		// handle response
+	} receiveValue: { value in
+		// handle received value
+	}
+	.store(in: &subscriptions)
 // or
 loginService?.array?
-			.sink { response in
-				// handle response
-			} receiveValue: { value in
-				// handle received value
-			}
-			.store(in: &subscriptions)
+	.sink { response in
+		// handle response
+	} receiveValue: { value in
+		// handle received value
+	}
+	.store(in: &subscriptions)
 // or
 loginService?.string?
-			.sink { response in
-				// handle response
-			} receiveValue: { value in
-				// handle received value
-			}
-			.store(in: &subscriptions)
+	.sink { response in
+		// handle response
+	} receiveValue: { value in
+		// handle received value
+	}
+	.store(in: &subscriptions)
 ```
 
 ## KeyboardContentManager
