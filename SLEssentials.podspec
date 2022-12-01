@@ -40,7 +40,8 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
 
-  s.dependency 'Alamofire', 'google-cast-sdk-no-bluetooth'
+  s.dependency 'Alamofire'
+  s.dependency 'google-cast-sdk-no-bluetooth'
   
   s.subspec 'NibHelper' do |nh|
     nh.source_files = 'Sources/SLEssentials/NibHelper/*.swift'
