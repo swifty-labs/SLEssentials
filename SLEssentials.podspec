@@ -41,6 +41,7 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
 
   s.dependency 'Alamofire'
+  s.dependency 'google-cast-sdk-no-bluetooth'
   
   s.subspec 'NibHelper' do |nh|
     nh.source_files = 'Sources/SLEssentials/NibHelper/*.swift'
@@ -72,5 +73,9 @@ Pod::Spec.new do |s|
    
    s.subspec 'Networking' do |net|
     net.source_files = 'Sources/SLEssentials/Networking/*.swift'
+   end
+   
+   s.subspec 'Cast' do |cast|
+    cast.source_files = 'Sources/iOS/Cast/*.swift'
    end
 end
