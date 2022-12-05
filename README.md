@@ -36,7 +36,7 @@ pod 'SLEssentials', :git => 'https://github.com/swifty-labs/SLEssentials.git'
 
 ### Subspecs
 
-There are multi subspecs available, like *NibHelper, KeyboardContentManager, UIViewControllerEmbeding, tvOS* and others. It means, you can install one or more of the **SLEssentials** modules. By default, you get all modules, so, if you need specific module you must specify it.
+There are multi subspecs available, like *NibHelper, Networking, KeyboardContentManager, UIViewControllerEmbeding, tvOS* and others. It means, you can install one or more of the **SLEssentials** modules. By default, you get all modules, so, if you need specific module you must specify it.
 
 Podfile example:
 
@@ -93,6 +93,112 @@ let overlay = ImageOverlay.instance
 ```
 
 <div id="KeyboardContentManager"></div>
+
+## Networking
+
+*Networking* is a module with which you can easily and simply send a network request and handle the response. This module supports functions with completion handler, async/await property and property which use combine framework. Under the hood this module use Alamofire networking library to create and send request.
+
+Installing:
+
+```ruby
+pod 'SLEssentials/Networking', :git => 'https://github.com/swifty-labs/SLEssentials.git'
+```
+Note:
+If you are going to use functions with a completion handler, you need to inherit from the Response class and define coding keys as follows:
+
+```swift
+final class ErrorResponse: Response {
+	private enum CodingKeys: String, CodingKey {
+		case message = "coding key"
+		case status = "coding key"
+	}
+}
+```
+Create a class that inherits Service<Decodable>:
+
+```swift
+import SLEssentials
+
+struct User: Decodable {
+	var id: String
+	var name: String
+	var nickName: String
+
+	private enum CodingKeys: String, CodingKey {
+		case id = "coding key"
+		case name = "coding key"
+		case nickName = "coding key"
+	}
+}
+
+final class LoginService: Service<User> {
+
+	init?(url: String){ 
+		super.init(urlString: url)
+	}
+
+	// or 
+
+	init?(serviceable: Serviceable){
+		super.init(serviceable: serviceable)
+	}
+}
+
+let loginService = LoginService(...)
+
+// completion handler example
+loginService?.consumeObject { response in
+	// handle response
+}
+// or
+loginService?.consumeArray { response in
+	// handle response
+}
+// or
+loginService?.consumeString { response in
+	// handle response
+}
+
+// async/await example
+do {
+	let response = try await loginService?.consumeObject
+	// or
+	let response = try await loginService?.consumeArray
+	// or
+	let response = try await loginService?.consumeString
+
+	// handle response 
+}
+catch {
+	// handle error
+	}
+}		
+
+// combine example
+loginService?.object?
+	.sink { response in
+		// handle response
+	} receiveValue: { value in
+		// handle received value
+	}
+	.store(in: &subscriptions)
+// or
+loginService?.array?
+	.sink { response in
+		// handle response
+	} receiveValue: { value in
+		// handle received value
+	}
+	.store(in: &subscriptions)
+// or
+loginService?.string?
+	.sink { response in
+		// handle response
+	} receiveValue: { value in
+		// handle received value
+	}
+	.store(in: &subscriptions)
+```
 
 ## KeyboardContentManager
 
