@@ -9,12 +9,23 @@
 import Foundation
 
 public struct Serviceable {
-	var scheme: Scheme = .secure
+	var scheme: Scheme 
 	var baseUrl: String
 	var urlPath: String
-	var httpMethod: HttpMethod = .get
-	var paramEncoding: ParamsEncoding = .url
-	var httpHeaders: [HttpHeader]? = nil
-	var params: Parameters? = nil
-	var items: [URLQueryItem]? = nil
+	var httpMethod: HttpMethod
+	var paramEncoding: ParamsEncoding
+	var httpHeaders: [HttpHeader]?
+	var params: Parameters?
+	var items: [URLQueryItem]?
+	
+	public init(scheme: Scheme = .secure, baseUrl: String, urlPath: String, httpMethod: HttpMethod = .get, paramEncoding: ParamsEncoding = .url, httpHeaders: [HttpHeader]? = nil, params: Parameters? = nil, items: [URLQueryItem]? = nil) {
+		self.scheme = scheme
+		self.baseUrl = baseUrl
+		self.urlPath = urlPath
+		self.httpMethod = httpMethod
+		self.paramEncoding = paramEncoding
+		self.httpHeaders = httpHeaders
+		self.params = params
+		self.items = items
+	}
 }
