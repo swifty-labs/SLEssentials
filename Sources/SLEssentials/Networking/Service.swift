@@ -27,28 +27,28 @@ open class Service<T: Decodable> {
 	}
 	
 	@available(iOS 13.0.0, *)
-	public var consumeObject: T? {
+	open var consumeObject: T? {
 		get async throws {
 			try await requestObject.request?.serializingDecodable(T.self).value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	public var consumeArray: [T]? {
+	open var consumeArray: [T]? {
 		get async throws {
 			try await requestObject.request?.serializingDecodable([T].self).value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	public var consumeString: String? {
+	open var consumeString: String? {
 		get async throws {
 			try await requestObject.request?.serializingString().value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	public var object: AnyPublisher<T, NetworkError>? {
+	open var object: AnyPublisher<T, NetworkError>? {
 		requestObject.request?.publishDecodable(type: T.self)
 			.value()
 			.mapError { NetworkError.alamofire($0) }
@@ -56,7 +56,7 @@ open class Service<T: Decodable> {
 	}
 	
 	@available(iOS 13.0.0, *)
-	public var array: AnyPublisher<[T], NetworkError>? {
+	open var array: AnyPublisher<[T], NetworkError>? {
 		requestObject.request?.publishDecodable(type: [T].self)
 			.value()
 			.mapError { NetworkError.alamofire($0) }
@@ -64,7 +64,7 @@ open class Service<T: Decodable> {
 	}
 	
 	@available(iOS 13.0.0, *)
-	public var string: AnyPublisher<String, NetworkError>? {
+	open var string: AnyPublisher<String, NetworkError>? {
 		requestObject.request?.publishString()
 			.value()
 			.mapError { NetworkError.alamofire($0) }
@@ -86,17 +86,17 @@ open class Service<T: Decodable> {
 	
 	// MARK: - Public methods
 	
-	public func consumeObject(completion: VoidReturnClosure<Result<T, NetworkError>>?) {
+	open func consumeObject(completion: VoidReturnClosure<Result<T, NetworkError>>?) {
 		guard let completion = completion else { return }
 		requestObject.request?.validate().responseObject(completion: completion)
 	}
 	
-	public func consumeArray(completion: VoidReturnClosure<Result<[T], NetworkError>>?) {
+	open func consumeArray(completion: VoidReturnClosure<Result<[T], NetworkError>>?) {
 		guard let completion = completion else { return }
 		requestObject.request?.validate().responseArray(completion: completion)
 	}
 	
-	public func consumeString(completion: VoidReturnClosure<Result<String, NetworkError>>?) {
+	open func consumeString(completion: VoidReturnClosure<Result<String, NetworkError>>?) {
 		guard let completion = completion else { return }
 		requestObject.request?.validate().responseString(completion: completion)
 	}
