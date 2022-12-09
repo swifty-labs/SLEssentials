@@ -14,7 +14,6 @@ public enum NetworkError {
 	case mapping
 	case backend(BEError)
 	case noInternet
-	case badUrl
 }
 
 extension NetworkError: LocalizedError {
@@ -26,8 +25,6 @@ extension NetworkError: LocalizedError {
 			return error.message
 		case .noInternet:
 			return "No Internet Connection!"
-		case .badUrl:
-			return "Bad url address!"
 		}
 	}
 }
