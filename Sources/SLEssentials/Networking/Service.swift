@@ -77,7 +77,7 @@ open class Service<T: Decodable> {
 	
 	public init(serviceable: Serviceable) {
 		self.serviceable = serviceable
-		self.urlAddress = createUrl
+		self.urlAddress = self.createUrl
 	}
 	
 	public init?(urlString: String) {

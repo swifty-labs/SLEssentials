@@ -22,7 +22,6 @@ final class Request<T: Routable> {
 		case .json:
 			encodingType = JSONEncoding.default
 		}
-//		guard let url = routable.url else { throw NetworkError.badUrl }
 		return session.request(routable.url, method: method, parameters: routable.parameters, encoding: encodingType, headers: headers)
 		
 	}
