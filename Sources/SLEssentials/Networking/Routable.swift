@@ -11,7 +11,7 @@ import Foundation
 public protocol Routable {
 	associatedtype T: Decodable
 	var path: String { get }
-	var url: URL? { get }
+	var url: URL { get }
 	var method: HttpMethod { get }
 	var encoding: ParamsEncoding { get }
 	var headers: [HttpHeader]? { get }

@@ -12,7 +12,7 @@ import Alamofire
 final class Request<T: Routable> {
 	// MARK: - Properties
 	
-	var request: DataRequest? {
+	var request: DataRequest {		
 		let headers = HTTPHeaders(routable.headers?.map { HTTPHeader(name: $0.name, value: $0.value) } ?? [])
 		let method = HTTPMethod(rawValue: routable.method.rawValue)
 		var encodingType: ParameterEncoding
@@ -22,8 +22,9 @@ final class Request<T: Routable> {
 		case .json:
 			encodingType = JSONEncoding.default
 		}
-		guard let url = routable.url else { return nil }
-		return session.request(url, method: method, parameters: routable.parameters, encoding: encodingType, headers: headers)
+//		guard let url = routable.url else { throw NetworkError.badUrl }
+		return session.request(routable.url, method: method, parameters: routable.parameters, encoding: encodingType, headers: headers)
+		
 	}
 	private var routable: T
 	private var session: Session {
