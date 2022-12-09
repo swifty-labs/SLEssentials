@@ -15,57 +15,59 @@ open class Service<T: Decodable> {
 	private lazy var requestObject = Request(routable: self)
 	
 	private var serviceable: Serviceable
-	private var urlAddress: URL?
-	private var createUrl: URL? {
+	private var urlAddress: URL!
+	private var createUrl: URL {
 		var components = URLComponents()
 		components.scheme = serviceable.scheme.rawValue
 		components.host = serviceable.baseUrl
 		components.path = path
 		components.queryItems = queryItems
-		guard let url = components.url else { return nil }
+		guard let url = components.url else {
+			fatalError("Invalid url: \(serviceable.scheme.rawValue)\(serviceable.baseUrl)\(serviceable.urlPath)")
+		}
 		return url
 	}
 	
 	@available(iOS 13.0.0, *)
-	open var consumeObject: T? {
+	open var consumeObject: T {
 		get async throws {
-			try await requestObject.request?.serializingDecodable(T.self).value
+			try await requestObject.request.serializingDecodable(T.self).value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	open var consumeArray: [T]? {
+	open var consumeArray: [T] {
 		get async throws {
-			try await requestObject.request?.serializingDecodable([T].self).value
+			try await requestObject.request.serializingDecodable([T].self).value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	open var consumeString: String? {
+	open var consumeString: String {
 		get async throws {
-			try await requestObject.request?.serializingString().value
+			try await requestObject.request.serializingString().value
 		}
 	}
 	
 	@available(iOS 13.0.0, *)
-	open var object: AnyPublisher<T, NetworkError>? {
-		requestObject.request?.publishDecodable(type: T.self)
+	open var object: AnyPublisher<T, NetworkError> {
+		requestObject.request.publishDecodable(type: T.self)
 			.value()
 			.mapError { NetworkError.alamofire($0) }
 			.eraseToAnyPublisher()
 	}
 	
 	@available(iOS 13.0.0, *)
-	open var array: AnyPublisher<[T], NetworkError>? {
-		requestObject.request?.publishDecodable(type: [T].self)
+	open var array: AnyPublisher<[T], NetworkError> {
+		requestObject.request.publishDecodable(type: [T].self)
 			.value()
 			.mapError { NetworkError.alamofire($0) }
 			.eraseToAnyPublisher()
 	}
 	
 	@available(iOS 13.0.0, *)
-	open var string: AnyPublisher<String, NetworkError>? {
-		requestObject.request?.publishString()
+	open var string: AnyPublisher<String, NetworkError> {
+		requestObject.request.publishString()
 			.value()
 			.mapError { NetworkError.alamofire($0) }
 			.eraseToAnyPublisher()
@@ -75,7 +77,7 @@ open class Service<T: Decodable> {
 	
 	public init(serviceable: Serviceable) {
 		self.serviceable = serviceable
-		self.urlAddress = createUrl
+		self.urlAddress = self.createUrl
 	}
 	
 	public init?(urlString: String) {
@@ -86,19 +88,16 @@ open class Service<T: Decodable> {
 	
 	// MARK: - Public methods
 	
-	open func consumeObject(completion: VoidReturnClosure<Result<T, NetworkError>>?) {
-		guard let completion = completion else { return }
-		requestObject.request?.validate().responseObject(completion: completion)
+	open func consumeObject(completion: @escaping VoidReturnClosure<Result<T, NetworkError>>) {
+		requestObject.request.validate().responseObject(completion: completion)
 	}
 	
-	open func consumeArray(completion: VoidReturnClosure<Result<[T], NetworkError>>?) {
-		guard let completion = completion else { return }
-		requestObject.request?.validate().responseArray(completion: completion)
+	open func consumeArray(completion: @escaping VoidReturnClosure<Result<[T], NetworkError>>) {
+		requestObject.request.validate().responseArray(completion: completion)
 	}
 	
-	open func consumeString(completion: VoidReturnClosure<Result<String, NetworkError>>?) {
-		guard let completion = completion else { return }
-		requestObject.request?.validate().responseString(completion: completion)
+	open func consumeString(completion: @escaping VoidReturnClosure<Result<String, NetworkError>>) {
+		requestObject.request.validate().responseString(completion: completion)
 	}
 }
 
@@ -109,7 +108,7 @@ extension Service: Routable {
 		serviceable.urlPath
 	}
 	
-	public var url: URL? {
+	public var url: URL {
 		urlAddress
 	}
 	

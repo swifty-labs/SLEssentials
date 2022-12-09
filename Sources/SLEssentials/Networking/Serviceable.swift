@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Serviceable {
-	var scheme: Scheme 
+	var scheme: Scheme
 	var baseUrl: String
 	var urlPath: String
 	var httpMethod: HttpMethod
