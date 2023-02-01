@@ -12,7 +12,7 @@ import LocalAuthentication
 #if os(iOS)
 public protocol AuthenticationManageable {
 	func biometricsType(with type: AuthenticationType) -> Result<BiometricType, Error>
-	func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> () )
+	func presentAuthenticationToUser(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> ())
 }
 
 public enum BiometricType {
@@ -84,7 +84,7 @@ public final class AuthenticationManager {
 	// MARK: - Private methods
 	
 	private func isAuthenticationAvailable(with type: AuthenticationType) -> Result<Void, Error> {
-		if context.canEvaluatePolicy(type.policy, error: &error), let error = error {
+		if context.canEvaluatePolicy(type.policy, error: &error), let error {
 			return .failure(error)
 		}
 		return .success(())
@@ -130,11 +130,11 @@ public final class AuthenticationManager {
 	private func requestAuthentication(with options: MTAuthenticationPresentOptions, completion: @escaping (Result<BiometricType, Error>) -> () ) {
 		setLocalizedTitles(with: options)
 		context.evaluatePolicy(options.authenticationType.policy, localizedReason: options.reason) { [weak self] success, error in
-			guard let self = self else { return }
+			guard let self else { return }
 			DispatchQueue.main.async {
 				
 				guard success else {
-					if let error = error {
+					if let error {
 						completion(.failure(self.checkError(with: error)))
 					}
 					return

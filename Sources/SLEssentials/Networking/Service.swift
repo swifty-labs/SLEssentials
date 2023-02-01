@@ -13,9 +13,9 @@ open class Service<T: Decodable> {
 	// MARK: - Properties
 	
 	private lazy var requestObject = Request(routable: self)
+    private lazy var urlAddress = createUrl
 	
 	private var serviceable: Serviceable
-	private var urlAddress: URL!
 	private var createUrl: URL {
 		var components = URLComponents()
 		components.scheme = serviceable.scheme.rawValue
@@ -77,7 +77,6 @@ open class Service<T: Decodable> {
 	
 	public init(serviceable: Serviceable) {
 		self.serviceable = serviceable
-		self.urlAddress = self.createUrl
 	}
 	
 	public init?(urlString: String) {

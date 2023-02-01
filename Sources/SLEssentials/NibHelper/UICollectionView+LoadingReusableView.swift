@@ -17,14 +17,18 @@ extension UICollectionView {
     }
     
     func dequeueReusableHeader<T: UICollectionReusableView>(forIndexPath indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+        guard let cell = dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                          withReuseIdentifier: T.reuseIdentifier,
+                                                          for: indexPath) as? T else {
             fatalError("Dequeing a cell with identifier: \(T.reuseIdentifier) failed.")
         }
         return cell
     }
     
     func dequeueReusableFooter<T: UICollectionReusableView>(forIndexPath indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+        guard let cell = dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                          withReuseIdentifier: T.reuseIdentifier,
+                                                          for: indexPath) as? T else {
             fatalError("Dequeing a cell with identifier: \(T.reuseIdentifier) failed.")
         }
         return cell

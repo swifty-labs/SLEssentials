@@ -12,7 +12,7 @@ import Alamofire
 final class Request<T: Routable> {
 	// MARK: - Properties
 	
-	var request: DataRequest {		
+	var request: DataRequest {
 		let headers = HTTPHeaders(routable.headers?.map { HTTPHeader(name: $0.name, value: $0.value) } ?? [])
 		let method = HTTPMethod(rawValue: routable.method.rawValue)
 		var encodingType: ParameterEncoding

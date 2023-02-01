@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIViewController {	
+extension UIViewController {
 	public func embed(viewController child: UIViewController, in containerView: UIView? = nil) {
 		addChild(child)
 		
@@ -41,9 +41,7 @@ extension UIViewController {
 	}
 	
 	public func unembed() {
-		guard isViewLoaded else {
-			return
-		}
+		guard isViewLoaded else { return }
 		willMove(toParent: nil)
 		view.removeFromSuperview()
 		removeFromParent()

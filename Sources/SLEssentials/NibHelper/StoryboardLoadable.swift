@@ -15,11 +15,11 @@ public protocol StoryboardLoadable {
 extension StoryboardLoadable where Self: UIViewController {
     
     public static var storyboardName: String {
-        return String(describing: self)
+        String(describing: self)
     }
     
     public static var storyboardIdentifier: String {
-        return String(describing: self)
+        String(describing: self)
     }
     
     public static func instantiate(fromStoryboardNamed name: String? = nil) -> Self {
@@ -52,6 +52,6 @@ extension StoryboardLoadable where Self: UIViewController {
 
 extension UIViewController: StoryboardLoadable {
     public static var storyboardName: String {
-        return "Main"
+        "Main"
     }
 }
