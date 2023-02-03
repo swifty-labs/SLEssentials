@@ -31,8 +31,14 @@ public final class ConstraintKeyboardContentManager: KeyboardManageable {
 	// MARK: - Public methods
 	
 	public func registerForKeyboardNotifications() {
-		notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-		notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+		notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow(_:)),
+                                       name: UIResponder.keyboardWillShowNotification,
+                                       object: nil)
+		notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide(_:)),
+                                       name: UIResponder.keyboardWillHideNotification,
+                                       object: nil)
 	}
 	
 	public func unregisterForKeyboardNotifications() {
@@ -44,9 +50,9 @@ public final class ConstraintKeyboardContentManager: KeyboardManageable {
 	
 	@objc func keyboardWillShow(_ notification: Notification) {
 		if let userInfo = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-			UIView.animate(withDuration: 0.25, animations: {[weak self] in
+			UIView.animate(withDuration: 0.25) { [weak self] in
 				self?.constraintBottom.constant = userInfo.cgRectValue.height - (self?.bottomOffsetHeight ?? 0.0)
-			})
+			}
 			keyboardShows()
 		}
 	}
@@ -54,9 +60,9 @@ public final class ConstraintKeyboardContentManager: KeyboardManageable {
 	@objc func keyboardWillHide(_ notification: Notification) {
 		keyboardHides()
 		constraintBottom.constant = 0.0
-		UIView.animate(withDuration: 0.25, animations: {[weak self] in
+		UIView.animate(withDuration: 0.25) { [weak self] in
 			self?.containerView.layoutIfNeeded()
-		})
+		}
 	}
 }
 #endif

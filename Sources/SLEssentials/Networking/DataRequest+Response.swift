@@ -11,24 +11,24 @@ import Alamofire
 
 public extension DataRequest {
 	func responseObject<T: Decodable>(completion: @escaping (Result<T, NetworkError>) -> ()) {
-		responseDecodable(completionHandler: { [weak self] response in
+		responseDecodable { [weak self] response in
 			guard let self else { return }
 			completion(self.responseObject(from: response))
-		})
+		}
 	}
 	
 	func responseArray<T: Decodable>(completion: @escaping (Result<[T], NetworkError>) -> ()) {
-		responseDecodable(completionHandler: { [weak self] response in
+		responseDecodable { [weak self] response in
 			guard let self else { return }
 			completion(self.responseArray(from: response))
-		})
+		}
 	}
 	
 	func responseString(completion: @escaping (Result<String, NetworkError>) -> ()) {
-		responseString(completionHandler: {[weak self] response in
+		responseString { [weak self] response in
 			guard let self else { return }
 			completion(self.responseString(from: response))
-		})
+		}
 	}
 	
 	// MARK: - Private Methods
@@ -63,7 +63,7 @@ public extension DataRequest {
 		return .success(string)
 	}
 	
-	private func error<T:Decodable>(from responseData: AFDataResponse<T>) -> NetworkError {
+	private func error<T: Decodable>(from responseData: AFDataResponse<T>) -> NetworkError {
 		guard let statusCode = responseData.response?.statusCode else {
 			return NetworkError.general
 		}

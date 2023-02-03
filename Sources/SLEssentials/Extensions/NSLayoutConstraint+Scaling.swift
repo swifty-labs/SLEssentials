@@ -15,10 +15,10 @@ public enum AxialRatio {
 
 extension NSLayoutConstraint {
 	var horizontalRatio: CGFloat {
-		return UIScreen.main.bounds.width / 414.0
+        UIScreen.main.bounds.width / 414.0
 	}
 	var verticalRatio: CGFloat {
-		return UIScreen.main.bounds.height / 896.0
+        UIScreen.main.bounds.height / 896.0
 	}
 
 	public func adjust(for ratio: AxialRatio) {

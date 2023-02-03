@@ -14,10 +14,10 @@ public protocol NibLoadable {
 
 extension NibLoadable where Self: UIView {
 	public static var nibName: String {
-        return String(describing: self)
+        String(describing: self)
     }
     
-	public     static var nib: UINib {
-        return UINib(nibName: nibName, bundle: Bundle(for: self))
+	public static var nib: UINib {
+        UINib(nibName: nibName, bundle: Bundle(for: self))
     }
 }

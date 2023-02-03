@@ -74,7 +74,7 @@ public final class TextTapManager {
 	}
 	
 	func textChunk(at index: Int, completion: ((NSAttributedString?) -> ())?) {
-		guard let attributedText = attributedText else {
+		guard let attributedText else {
 			completion?(nil)
 			return
 		}

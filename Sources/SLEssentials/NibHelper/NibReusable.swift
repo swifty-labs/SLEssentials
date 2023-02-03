@@ -13,10 +13,7 @@ protocol NibReusable: Reusable, NibLoadable {
 extension UITableViewCell: NibReusable {
 }
 
-extension UICollectionViewCell: NibReusable {
-}
-
-extension UITableViewHeaderFooterView : NibReusable {
+extension UITableViewHeaderFooterView: NibReusable {
 }
 
 extension UICollectionReusableView: NibReusable {

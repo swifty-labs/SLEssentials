@@ -60,7 +60,7 @@ public struct Logger {
 				output += String(lineNumber)
 			}
 		}
-		if let message = message {
+		if let message {
 			output += " \(message)"
 		}
 		if let errorMessage = error?.localizedDescription {

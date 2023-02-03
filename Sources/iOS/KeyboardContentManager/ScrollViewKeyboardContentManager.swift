@@ -15,7 +15,7 @@ public final class ScrollViewKeyboardContentManager: KeyboardManageable {
 	
 	public var keyboardHides: () -> () = {}
 	public var keyboardShows: () -> () = {}
-	public var bottomOffsetHeight: CGFloat? = nil
+	public var bottomOffsetHeight: CGFloat?
 	
 	private var notificationCenter: NotificationCenter = .default
 	private var scrollView: UIScrollView?
@@ -29,8 +29,14 @@ public final class ScrollViewKeyboardContentManager: KeyboardManageable {
 	// MARK: - Public methods
 	
 	public func registerForKeyboardNotifications() {
-		notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-		notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+		notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow(_:)),
+                                       name: UIResponder.keyboardWillShowNotification,
+                                       object: nil)
+		notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide(_:)),
+                                       name: UIResponder.keyboardWillHideNotification,
+                                       object: nil)
 	}
 	
 	public func unregisterForKeyboardNotifications() {
