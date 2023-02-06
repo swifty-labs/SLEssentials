@@ -6,7 +6,6 @@
 //  Copyright © 2022 SwiftyLabs. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 public enum AxialRatio {
