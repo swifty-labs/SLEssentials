@@ -28,9 +28,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/swifty-labs/SLEssentials.git', :tag => s.version.to_s, :submodules => true }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.tvos.deployment_target = '15.0'
-  s.swift_version = '5.0'
+  s.swift_version = '5.7'
   s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'AuthenticationManager', 'TextTapManager', 'Extensions', 'Logger', 'Networking']
   
   # s.resource_bundles = {
@@ -39,8 +39,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-
-  s.dependency 'Alamofire'
   
   s.subspec 'NibHelper' do |nh|
     nh.source_files = 'Sources/SLEssentials/NibHelper/*.swift'
@@ -51,7 +49,8 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Extensions' do |ex|
-   ex.source_files = 'Sources/SLEssentials/Extensions/*.swift'
+   ex.source_files = 'Sources/SLEssentials/Extensions/**/*.swift'
+	 ex.dependency 'TinyConstraints'
   end
 	
    s.subspec 'AuthenticationManager' do |am|
@@ -67,10 +66,11 @@ Pod::Spec.new do |s|
    end
 
    s.subspec 'tvOS' do |tv|
-    tv.source_files = 'Sources/SLEssentials/Extensions/*.swift', 'Sources/SLEssentials/NibHelper/*.swift', 'Sources/SLEssentials/TextTapManager/*.swift', 'Sources/SLEssentials/Logger/*.swift'
+    tv.source_files = 'Sources/SLEssentials/Extensions/**/*.swift', 'Sources/SLEssentials/NibHelper/*.swift', 'Sources/SLEssentials/TextTapManager/*.swift', 'Sources/SLEssentials/Logger/*.swift'
    end
    
    s.subspec 'Networking' do |net|
     net.source_files = 'Sources/SLEssentials/Networking/*.swift'
+		net.dependency 'Alamofire'
    end
 end
