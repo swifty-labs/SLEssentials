@@ -31,7 +31,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.tvos.deployment_target = '15.0'
   s.swift_version = '5.7'
-  s.default_subspec = ['NibHelper', 'KeyboardContentManager', 'AuthenticationManager', 'TextTapManager', 'Extensions', 'Logger', 'Networking']
+
+  s.default_subspec = ['Utilities', 'KeyboardManager', 'AuthenticationManager', 'TextTapManager', 'AppStateObserver', 'Debouncer', 'ImageLoader', 'ImagePicker', 'LinkedList', 'LoadingIndicator', 'TableViewDataSource', 'Throttler', 'Logger', 'Networking']
   
   # s.resource_bundles = {
   #   'SLEssentials' => ['SLEssentials/Assets/*.png']
@@ -39,38 +40,70 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+
+	s.subspec 'Utilities' do |uti|
+		uti.source_files = 'Sources/SLEssentials/Utilities/**/*.swift'
+		uti.dependency 'TinyConstraints'
+	end
   
-  s.subspec 'NibHelper' do |nh|
-    nh.source_files = 'Sources/SLEssentials/NibHelper/*.swift'
+  s.subspec 'KeyboardManager' do |km|
+    km.source_files = 'Sources/iOS/KeyboardManager/*.swift'
   end
-  
-  s.subspec 'KeyboardContentManager' do |kcm|
-    kcm.source_files = 'Sources/iOS/KeyboardContentManager/*.swift'
-  end
-  
-  s.subspec 'Extensions' do |ex|
-   ex.source_files = 'Sources/SLEssentials/Extensions/**/*.swift'
-	 ex.dependency 'TinyConstraints'
-  end
-	
+
    s.subspec 'AuthenticationManager' do |am|
     am.source_files = 'Sources/iOS/AuthenticationManager/*.swift'
    end
-	
+
    s.subspec 'TextTapManager' do |ttm|
-    ttm.source_files = 'Sources/SLEssentials/TextTapManager/*.swift'
+    ttm.source_files = 'Sources/SLEssentials/Managers/TextTapManager/*.swift'
    end
-  
+
+	 s.subspec 'AppStateObserver' do |aso|
+		aso.source_files = 'Sources/SLEssentials/Managers/AppStateObserver/*.swift'
+	 end
+
+	 s.subspec 'Debouncer' do |deb|
+		deb.source_files = 'Sources/SLEssentials/Managers/Debouncer/*.swift'
+	 end
+
+	 s.subspec 'ImageLoader' do |iml|
+		iml.source_files = 'Sources/SLEssentials/Managers/ImageLoader/*.swift'
+	 end
+
+	 s.subspec 'ImagePicker' do |imp|
+		imp.source_files = 'Sources/SLEssentials/Managers/ImagePicker/*.swift'
+	 end
+
+	 s.subspec 'LinkedList' do |lil|
+		lil.source_files = 'Sources/SLEssentials/Managers/LinkedList/*.swift'
+	 end
+
+	 s.subspec 'LoadingIndicator' do |loi|
+		loi.source_files = 'Sources/SLEssentials/Managers/LoadingIndicator/*.swift'
+	 end
+
+	 s.subspec 'TableViewDataSource' do |tvd|
+		tvd.source_files = 'Sources/SLEssentials/Managers/TableViewDataSource/*.swift'
+	 end
+
+	 s.subspec 'Throttler' do |thr|
+		thr.source_files = 'Sources/SLEssentials/Managers/Throttler/*.swift'
+	 end
+
    s.subspec 'Logger' do |lo|
     lo.source_files = 'Sources/SLEssentials/Logger/*.swift'
    end
 
-   s.subspec 'tvOS' do |tv|
-    tv.source_files = 'Sources/SLEssentials/Extensions/**/*.swift', 'Sources/SLEssentials/NibHelper/*.swift', 'Sources/SLEssentials/TextTapManager/*.swift', 'Sources/SLEssentials/Logger/*.swift'
-   end
-   
-   s.subspec 'Networking' do |net|
-    net.source_files = 'Sources/SLEssentials/Networking/*.swift'
+	 s.subspec 'Networking' do |net|
+		net.source_files = 'Sources/SLEssentials/Networking/*.swift'
 		net.dependency 'Alamofire'
-   end
+		net.dependency 'SLEssentials/Utilities'
+	 end
+
+	s.subspec 'tvOS' do |tv|
+	 tv.dependency 'SLEssentials/Logger'
+	 tv.dependency 'SLEssentials/TextTapManager'
+	 tv.dependency 'SLEssentials/Utilities'
+	end
+
 end
