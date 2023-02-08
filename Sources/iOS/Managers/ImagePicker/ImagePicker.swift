@@ -9,6 +9,7 @@
 import UIKit
 import PhotosUI
 
+#if os(iOS)
 public protocol ImagePicker {
 	var onImagesSelect: VoidReturnClosure<[UIImage]>? { get set }
 	var onCloseSelect: NoArgsClosure? { get set }
@@ -145,3 +146,4 @@ extension SystemImagePicker: PHPickerViewControllerDelegate {
 		}
 	}
 }
+#endif

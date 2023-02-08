@@ -8,6 +8,7 @@
 
 import UIKit
 
+#if os(iOS)
 public extension UISwitch {
 	func setOffTintColor(_ color: UIColor) {
 		tintColor = color
@@ -15,3 +16,4 @@ public extension UISwitch {
 		backgroundColor = color
 	}
 }
+#endif
