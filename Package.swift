@@ -6,19 +6,20 @@ import PackageDescription
 let package = Package(
 	name: "SLEssentials",
 	platforms: [
-		.iOS(.v10),
+		.iOS(.v11),
 		.tvOS(.v15)
 	],
 	products: [
 		.library(name: "SLEssentials", targets: ["SLEssentials", "iOS"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.6.1"))
+		.package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.6.1")),
+		.package(url: "https://github.com/roberthein/TinyConstraints.git", .upToNextMajor(from: "4.0.2"))
 	],
 	targets: [
 		.target(
 			name: "SLEssentials",
-			dependencies: ["Alamofire"]
+			dependencies: ["Alamofire", "TinyConstraints"]
 		),
 		.target(
 			name: "iOS",

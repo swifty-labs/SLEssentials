@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SLEssentials
 
 #if os(iOS)
 public final class KeyboardManager {

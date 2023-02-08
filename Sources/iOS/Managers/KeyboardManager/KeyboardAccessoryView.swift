@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SLEssentials
 
 final class KeyboardAccessoryView: UIView {
 	// MARK: - Properties
