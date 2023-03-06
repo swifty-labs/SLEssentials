@@ -1,6 +1,6 @@
 //
 //  String+Edit.swift
-//  SLEssentials
+//
 //
 //  Created by Milos Stankovic on 3.8.22..
 //  Copyright © 2022 SwiftyLabs. All rights reserved.

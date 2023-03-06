@@ -1,6 +1,6 @@
 //
 //  Request.swift
-//  SLEssentials
+//
 //
 //  Created by Milos Stankovic on 18.7.22..
 //  Copyright © 2022 SwiftyLabs. All rights reserved.
