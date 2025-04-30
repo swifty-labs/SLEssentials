@@ -23,8 +23,11 @@ Pod::Spec.new do |s|
 		'vukasin-popovic' => 'vukasin.popovic@swiftylabs.io',
 		'slobodan-ristic' => 'slobodan.ristic@swiftylabs.io'
 	}
-
-	s.source           = { :git => 'https://github.com/swifty-labs/SLEssentials.git', :tag => s.version.to_s, :submodules => true }
+	s.source           = {
+		:git => 'https://github.com/swifty-labs/SLEssentials.git',
+		:tag => s.version.to_s,
+		:submodules => true
+	}
 
 	s.ios.deployment_target = '11.0'
 	s.tvos.deployment_target = '15.0'
@@ -32,14 +35,13 @@ Pod::Spec.new do |s|
 
 	s.default_subspec = ['Core', 'AuthenticationManager', 'Networking']
 
-	# Shared code used across multiple subspecs
-	s.subspec 'Shared' do |sh|
-		sh.source_files = 'Sources/SLEssentials/Utilities/**/*.swift',
-		'Sources/iOS/Utilities/**/*.swift'
-	end
-
+	# Core
 	s.subspec 'Core' do |co|
 		co.source_files = [
+		'Sources/SLEssentials/Utilities/**/*.swift',
+		'Sources/iOS/Utilities/**/*.swift',
+		'Sources/iOS/Managers/KeyboardManager/*.swift',
+		'Sources/iOS/Managers/ImagePicker/*.swift',
 		'Sources/SLEssentials/Logger/*.swift',
 		'Sources/SLEssentials/Managers/TableViewDataSource/*.swift',
 		'Sources/SLEssentials/Managers/AppStateObserver/*.swift',
@@ -48,26 +50,28 @@ Pod::Spec.new do |s|
 		'Sources/SLEssentials/Managers/TextTapManager/*.swift',
 		'Sources/SLEssentials/Managers/Debouncer/*.swift',
 		'Sources/SLEssentials/Managers/LinkedList/*.swift',
-		'Sources/SLEssentials/Managers/Throttler/*.swift',
-		'Sources/iOS/Managers/KeyboardManager/*.swift',
-		'Sources/iOS/Managers/ImagePicker/*.swift'
+		'Sources/SLEssentials/Managers/Throttler/*.swift'
 		]
-		co.dependency 'SLEssentials/Shared'
 		co.dependency 'TinyConstraints'
 	end
 
+	# AuthenticationManager
 	s.subspec 'AuthenticationManager' do |am|
 		am.source_files = 'Sources/iOS/Managers/AuthenticationManager/*.swift'
 	end
 
+	# Networking
 	s.subspec 'Networking' do |net|
-		net.source_files = 'Sources/SLEssentials/Networking/*.swift'
+		net.source_files = [
+		'Sources/SLEssentials/Networking/*.swift',
+		'Sources/SLEssentials/Utilities/**/*.swift',
+		'Sources/iOS/Utilities/**/*.swift'
+		]
 		net.dependency 'Alamofire'
-		net.dependency 'SLEssentials/Shared'
 	end
 
+	# tvOS
 	s.subspec 'tvOS' do |tv|
-		tv.platform = :tvos, '15.0'
 		tv.source_files = [
 		'Sources/SLEssentials/Logger/*.swift',
 		'Sources/SLEssentials/Utilities/**/*.swift',
