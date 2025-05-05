@@ -67,7 +67,7 @@ Pod::Spec.new do |s|
 		'Sources/SLEssentials/Utilities/**/*.swift',
 		'Sources/iOS/Utilities/**/*.swift'
 		]
-		net.dependency 'Alamofire'
+		net.dependency 'ReachabilitySwift'
 	end
 
 	# tvOS

@@ -1,30 +1,33 @@
 //
 //  NetworkError.swift
+//  Alamofire
 //
-//
-//  Created by Milos Stankovic on 1.7.22..
-//  Copyright © 2022 SwiftyLabs. All rights reserved.
+//  Created by Slobodan Ristic on 5. 5. 2025..
 //
 
 import Foundation
 
-public enum NetworkError {
+public enum NetworkError: Error {
 	case general
-	case alamofire(Error)
-	case mapping
-	case backend(BEError)
 	case noInternet
+	case error(Error)
+	case backendUnavailable
+	case decoding(Data)
 }
 
 extension NetworkError: LocalizedError {
 	public var errorDescription: String? {
 		switch self {
-		case .general, .mapping, .alamofire:
-			return "Something has gone wrong!"
-		case .backend(let error):
-			return error.message
+		case .general:
+			"Unknown error"
+		case .decoding:
+			"Decoding error"
+		case .error(let error):
+			error.localizedDescription
 		case .noInternet:
-			return "No Internet Connection!"
+			"No internet connection"
+		case .backendUnavailable:
+			"Backend unavailable"
 		}
 	}
 }

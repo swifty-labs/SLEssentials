@@ -8,4 +8,5 @@
 
 public typealias NoArgsClosure = () -> ()
 public typealias VoidReturnClosure<T> = (T) -> ()
-public typealias Parameters = [String: Any]
+public typealias HTTPHeaders = [String: String]
+public typealias Parameters = Encodable

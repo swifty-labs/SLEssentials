@@ -1,133 +1,88 @@
 //
 //  Service.swift
+//  SLEssentials
 //
-//
-//  Created by Milos Stankovic on 1.7.22..
-//  Copyright © 2022 SwiftyLabs. All rights reserved.
+//  Created by Slobodan Ristic on 5. 5. 2025..
 //
 
 import Foundation
-import Combine
 
-open class Service<T: Decodable> {
+public final class Service<T: Decodable>: Routable {
 	// MARK: - Properties
-	
-	private lazy var requestObject = Request(routable: self)
-    private lazy var urlAddress = createUrl
-	
-	private var serviceable: Serviceable
-	private var createUrl: URL {
-		var components = URLComponents()
-		components.scheme = serviceable.scheme.rawValue
-		components.host = serviceable.baseUrl
-		components.path = path
-		components.queryItems = queryItems
-		guard let url = components.url else {
-			fatalError("Invalid url: \(serviceable.scheme.rawValue)\(serviceable.baseUrl)\(serviceable.urlPath)")
-		}
-		return url
-	}
-	
-	@available(iOS 13.0.0, *)
-	open var consumeObject: T {
-		get async throws {
-			try await requestObject.request.serializingDecodable(T.self).value
-		}
-	}
-	
-	@available(iOS 13.0.0, *)
-	open var consumeArray: [T] {
-		get async throws {
-			try await requestObject.request.serializingDecodable([T].self).value
-		}
-	}
-	
-	@available(iOS 13.0.0, *)
-	open var consumeString: String {
-		get async throws {
-			try await requestObject.request.serializingString().value
-		}
-	}
-	
-	@available(iOS 13.0.0, *)
-	open var object: AnyPublisher<T, NetworkError> {
-		requestObject.request.publishDecodable(type: T.self)
-			.value()
-			.mapError { NetworkError.alamofire($0) }
-			.eraseToAnyPublisher()
-	}
-	
-	@available(iOS 13.0.0, *)
-	open var array: AnyPublisher<[T], NetworkError> {
-		requestObject.request.publishDecodable(type: [T].self)
-			.value()
-			.mapError { NetworkError.alamofire($0) }
-			.eraseToAnyPublisher()
-	}
-	
-	@available(iOS 13.0.0, *)
-	open var string: AnyPublisher<String, NetworkError> {
-		requestObject.request.publishString()
-			.value()
-			.mapError { NetworkError.alamofire($0) }
-			.eraseToAnyPublisher()
-	}
-	
+
+	public let scheme: Scheme
+	public let baseUrl: String
+	public let urlPath: String
+	public let method: HTTPMethod
+	public let encoding: ParametersEncoding
+	public let parameters: Parameters?
+	public let queryItems: [URLQueryItem]?
+	public var headers: HTTPHeaders?
+	public var errorInterceptor: ErrorInterceptor?
+	public var networkReachability: NetworkReachability?
+	public var requestAdapter: RequestAdapter?
+	public var completion: VoidReturnClosure<Result<T, NetworkError>>?
+
+	private let request = BasicRequest<T>()
+
 	// MARK: - Initialization
-	
-	public init(serviceable: Serviceable) {
-		self.serviceable = serviceable
+
+	public init(scheme: Scheme = .https,
+		 baseUrl: String,
+		 urlPath: String,
+		 method: HTTPMethod = .get,
+		 encoding: ParametersEncoding = .url,
+		 headers: HTTPHeaders? = [:],
+		 parameters: Parameters? = nil,
+		 queryItems: [URLQueryItem]? = nil) {
+		self.scheme = scheme
+		self.baseUrl = baseUrl
+		self.urlPath = urlPath
+		self.method = method
+		self.encoding = encoding
+		self.headers = headers
+		self.parameters = parameters
+		self.queryItems = queryItems
 	}
-	
-	public init?(urlString: String) {
-		guard let url = URL(string: urlString.withoutSpaces) else { return nil }
-		serviceable = Serviceable(baseUrl: "", urlPath: "")
-		urlAddress = url
+
+	// MARK: - Deinit
+
+	deinit {
+		Logger.logDeinit()
 	}
-	
+
 	// MARK: - Public methods
-	
-	open func consumeObject(completion: @escaping VoidReturnClosure<Result<T, NetworkError>>) {
-		requestObject.request.validate().responseObject(completion: completion)
-	}
-	
-	open func consumeArray(completion: @escaping VoidReturnClosure<Result<[T], NetworkError>>) {
-		requestObject.request.validate().responseArray(completion: completion)
-	}
-	
-	open func consumeString(completion: @escaping VoidReturnClosure<Result<String, NetworkError>>) {
-		requestObject.request.validate().responseString(completion: completion)
-	}
-}
 
-// MARK: - Routable
+	public func consume(completion: VoidReturnClosure<Result<T, NetworkError>>?) {
+		self.completion = completion
+		request.networkReachability = networkReachability
+		request.requestAdapter = requestAdapter
+		request.response(routable: self) { result in
+			switch result {
+			case .success(let object):
+				completion?(.success(object))
+			case .failure(let error):
+				if let errorInterceptor = self.errorInterceptor {
+					errorInterceptor.handle(error: error, service: self)
+				}
+				else {
+					completion?(.failure(error))
+				}
+			}
+		}
+	}
 
-extension Service: Routable {
-	public var path: String {
-		serviceable.urlPath
+	public func consume() async throws -> T {
+		request.networkReachability = networkReachability
+		request.requestAdapter = requestAdapter
+		return try await request.response(routable: self)
 	}
-	
-	public var url: URL {
-		urlAddress
+
+	public func retry() {
+		consume(completion: completion)
 	}
-	
-	public var method: HttpMethod {
-		serviceable.httpMethod
-	}
-	
-	public var encoding: ParamsEncoding {
-		serviceable.paramEncoding
-	}
-	
-	public var headers: [HttpHeader]? {
-		serviceable.httpHeaders
-	}
-	
-	public var parameters: Parameters? {
-		serviceable.params
-	}
-	
-	public var queryItems: [URLQueryItem]? {
-		serviceable.items
+
+	public func retry() async throws -> T {
+		try await consume()
 	}
 }

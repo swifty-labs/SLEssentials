@@ -63,7 +63,7 @@
         "Sources/iOS/Utilities/**/*.swift"
       ],
       "dependencies": {
-        "Alamofire": [
+        "ReachabilitySwift": [
 
         ]
       }

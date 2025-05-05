@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.10.2)
+  - ReachabilitySwift (5.2.4)
   - SLEssentials (1.1.0):
     - SLEssentials/AuthenticationManager (= 1.1.0)
     - SLEssentials/Core (= 1.1.0)
@@ -8,7 +8,7 @@ PODS:
   - SLEssentials/Core (1.1.0):
     - TinyConstraints
   - SLEssentials/Networking (1.1.0):
-    - Alamofire
+    - ReachabilitySwift
   - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
+    - ReachabilitySwift
     - TinyConstraints
 
 EXTERNAL SOURCES:
@@ -24,8 +24,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
-  SLEssentials: 499154b1c0fbe3f0a12de16228e71826dace6ff7
+  ReachabilitySwift: 32793e867593cfc1177f5d16491e3a197d2fccda
+  SLEssentials: 72bb3b1fee7faf0cf4ae1804cc7d078596cc1e28
   TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
 PODFILE CHECKSUM: 6517fd574a8e91977223bcf84fc78b73dab9677e
