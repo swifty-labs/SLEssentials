@@ -1,16 +1,33 @@
 PODS:
-  - SLEssentials (0.1.0)
+  - Alamofire (5.10.2)
+  - SLEssentials (1.1.0):
+    - SLEssentials/AuthenticationManager (= 1.1.0)
+    - SLEssentials/Core (= 1.1.0)
+    - SLEssentials/Networking (= 1.1.0)
+  - SLEssentials/AuthenticationManager (1.1.0)
+  - SLEssentials/Core (1.1.0):
+    - TinyConstraints
+  - SLEssentials/Networking (1.1.0):
+    - Alamofire
+  - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
   - SLEssentials (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - TinyConstraints
 
 EXTERNAL SOURCES:
   SLEssentials:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SLEssentials: fc974708d316b703713b09382018ed43ead13aeb
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  SLEssentials: 499154b1c0fbe3f0a12de16228e71826dace6ff7
+  TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 944108493e9bb8c4cd1c369439cee5057ca43bfc
+PODFILE CHECKSUM: 6517fd574a8e91977223bcf84fc78b73dab9677e
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.16.2

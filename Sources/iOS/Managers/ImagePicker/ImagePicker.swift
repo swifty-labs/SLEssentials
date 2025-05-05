@@ -8,7 +8,6 @@
 
 import UIKit
 import PhotosUI
-import SLEssentials
 
 #if os(iOS)
 public protocol ImagePicker {

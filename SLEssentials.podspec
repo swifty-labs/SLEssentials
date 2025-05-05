@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 		:submodules => true
 	}
 
-	s.ios.deployment_target = '11.0'
+	s.ios.deployment_target = '13.0'
 	s.tvos.deployment_target = '15.0'
 	s.swift_version = '5.7'
 
