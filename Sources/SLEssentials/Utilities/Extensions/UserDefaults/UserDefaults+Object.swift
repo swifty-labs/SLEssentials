@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UserDefaults {
+public extension UserDefaults {
 	func getObject<T: Any>(forKey key: String) -> T? {
 		object(forKey: key) as? T
 	}
