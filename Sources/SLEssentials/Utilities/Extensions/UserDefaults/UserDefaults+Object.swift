@@ -14,5 +14,6 @@ public extension UserDefaults {
 
 	func setObject(_ object: Any?, forKey key: String) {
 		set(object, forKey: key)
+		synchronize()
 	}
 }
