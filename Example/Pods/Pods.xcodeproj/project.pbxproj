@@ -12,6 +12,7 @@
 		0A709FD65F95C425FCCBAB6A21102F71 /* UIApplication+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88AA9F5F80AA7C6388111A550302266 /* UIApplication+KeyWindow.swift */; };
 		0C4DF9F276FF15F0FE6AE42082F75BD1 /* SLEssentials-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48380BAF9F19DC63C1362E733388B037 /* SLEssentials-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1073EDA92DC8B06000E6CB55 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EDA82DC8B06000E6CB55 /* DateFormat.swift */; };
+		10FA72A42DCA240600D3B17A /* UserDefaults+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA72A32DCA240600D3B17A /* UserDefaults+Object.swift */; };
 		1212F8B46DB05568FE2429A83FA263D2 /* ReachabilitySwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C791F637E0BC0B68D34143D0DAAB239 /* ReachabilitySwift-dummy.m */; };
 		1421150EFD426AC211A0F7123257B3E3 /* NSLayoutConstraint+Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4EECF0A0B0410ACBDC60532C739DC /* NSLayoutConstraint+Scaling.swift */; };
 		147BAC809367AA437CFF197128297D90 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB588BE503188017E132B20E3450D90 /* AuthenticationManager.swift */; };
@@ -162,6 +163,7 @@
 		1073EDA82DC8B06000E6CB55 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		108E1438AF9A10F2612008A05688B44E /* NetworkError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		10E7FA01CDB7848D831C13859A26140A /* RequestAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestAdapter.swift; sourceTree = "<group>"; };
+		10FA72A32DCA240600D3B17A /* UserDefaults+Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Object.swift"; sourceTree = "<group>"; };
 		13ACA0B762C14550D489B5C28AC828E7 /* AsyncDebouncer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AsyncDebouncer.swift; sourceTree = "<group>"; };
 		14CED77F85454E9556A862C5BB29E9FB /* Pods-SLEssentials_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SLEssentials_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		1944312B168413F95A4D4EA95D5A9FB9 /* ReachabilitySwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ReachabilitySwift-Info.plist"; sourceTree = "<group>"; };
@@ -374,6 +376,14 @@
 			path = UISwitch;
 			sourceTree = "<group>";
 		};
+		10FA72A22DCA23CA00D3B17A /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				10FA72A32DCA240600D3B17A /* UserDefaults+Object.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		12A79E6D747B9EF2557CCEFF55E8D944 /* NSLayoutConstraint */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +591,7 @@
 		6D6FBBEC9B7805D0F1CFE748C4C14149 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				10FA72A22DCA23CA00D3B17A /* UserDefaults */,
 				EF4CB5609CE5D79FDBEBAE1CE5E3B396 /* Array */,
 				28479345481DBC78E97743E7747084BA /* CLLocationCoordinate2D */,
 				72122BC5F2DE4DE3002AE8C341307288 /* Codable */,
@@ -1237,6 +1248,7 @@
 				5B4B5F8919786E998662240E474E45EC /* UIButton+CenterVertically.swift in Sources */,
 				7F35943F8E8C6158C9FBFF20A5F4707E /* UICollectionView+LoadingCell.swift in Sources */,
 				1073EDA92DC8B06000E6CB55 /* DateFormat.swift in Sources */,
+				10FA72A42DCA240600D3B17A /* UserDefaults+Object.swift in Sources */,
 				96844B4108A85323965CE201D4F92B78 /* UICollectionView+LoadingReusableView.swift in Sources */,
 				2F17B54A1F1BD71A62AFC4267D2911D2 /* UIImage+Resize.swift in Sources */,
 				8CA593C83CD4DB20996E5AC70043DA71 /* UIStackView+RemoveSubviews.swift in Sources */,
