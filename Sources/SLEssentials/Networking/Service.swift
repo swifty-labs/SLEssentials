@@ -19,7 +19,7 @@ open class Service<T: Decodable>: Routable {
 	public let queryItems: [URLQueryItem]?
 	public var headers: HTTPHeaders?
 	public var errorInterceptor: ErrorInterceptor?
-	public var networkReachability: NetworkReachability?
+	public var networkReachability: (any NetworkReachability)?
 	public var requestAdapter: RequestAdapter?
 	public var completion: VoidReturnClosure<Result<T, NetworkError>>?
 
