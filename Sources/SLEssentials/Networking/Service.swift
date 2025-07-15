@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class Service<T: Decodable>: Routable {
+public class Service<T: Decodable>: Routable {
 	// MARK: - Properties
 
 	public let scheme: Scheme
