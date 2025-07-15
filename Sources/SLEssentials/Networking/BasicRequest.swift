@@ -124,10 +124,10 @@ public final class BasicRequest<T: Decodable>: Request {
 			return DateFormat.defaultFormat.date(from: dateString) ?? Date()
 		}
 
-		guard let decoded = try? decoder.decode(T.self, from: data) else {
+		guard let result = (T.self == Data.self) ? (data as? T) : try? decoder.decode(T.self, from: data) else {
 			throw NetworkError.decoding(data)
 		}
 
-		return decoded
+		return result
 	}
 }
