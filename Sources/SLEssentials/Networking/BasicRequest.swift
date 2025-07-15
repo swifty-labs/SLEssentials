@@ -10,7 +10,7 @@ import Foundation
 public final class BasicRequest<T: Decodable>: Request {
 	// MARK: - Properties
 
-	public var networkReachability: NetworkReachability?
+	public var networkReachability: (any NetworkReachability)?
 	public var requestAdapter: RequestAdapter?
 
 	// MARK: - Public methods
