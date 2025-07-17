@@ -75,14 +75,7 @@ public final class BasicRequest<T: Decodable>: Request {
 					return
 				}
 				do {
-					let decoder = JSONDecoder()
-					decoder.keyDecodingStrategy = .convertFromSnakeCase
-					decoder.dateDecodingStrategy = .custom { decoder in
-						let container = try decoder.singleValueContainer()
-						let dateString = try container.decode(String.self)
-						return DateFormat.defaultFormat.date(from: dateString) ?? Date()
-					}
-					let object = try decoder.decode(T.self, from: data)
+					let object = try JSONDecoder().decode(T.self, from: data)
 					completion(.success(object))
 				} catch {
 					completion(.failure(.decoding(data)))
@@ -116,15 +109,7 @@ public final class BasicRequest<T: Decodable>: Request {
 			throw NetworkError.general
 		}
 
-		let decoder = JSONDecoder()
-		decoder.keyDecodingStrategy = .convertFromSnakeCase
-		decoder.dateDecodingStrategy = .custom { decoder in
-			let container = try decoder.singleValueContainer()
-			let dateString = try container.decode(String.self)
-			return DateFormat.defaultFormat.date(from: dateString) ?? Date()
-		}
-
-		guard let result = (T.self == Data.self) ? (data as? T) : try? decoder.decode(T.self, from: data) else {
+		guard let result = (T.self == Data.self) ? (data as? T) : try? JSONDecoder().decode(T.self, from: data) else {
 			throw NetworkError.decoding(data)
 		}
 
