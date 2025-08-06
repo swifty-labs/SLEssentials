@@ -79,7 +79,7 @@ open class Service<T: Decodable>: Routable {
 		return try await request.response(routable: self)
 	}
 
-	func imagesConsume() async throws -> T {
+	public func imagesConsume() async throws -> T {
 		request.networkReachability = networkReachability
 		request.requestAdapter = requestAdapter
 		return try await request.imagesResponse(routable: self, images: uploadImages)

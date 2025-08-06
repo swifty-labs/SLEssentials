@@ -8,8 +8,8 @@
 import Foundation
 
 public struct UploadImage {
-	let data: Data
-	let fileName: String
-	let mimeType: String
-	let formFieldName: String
+	public let data: Data
+	public let fileName: String
+	public let mimeType: String
+	public let formFieldName: String
 }
