@@ -38,6 +38,14 @@ public final class BasicRequest<T: Decodable>: Request {
 		return try await createRequest(routable: newRoutable)
 	}
 
+	public func imagesResponse(routable: any Routable, images: [UploadImage]?) async throws -> T {
+		guard let requestAdapter else {
+			return try await createImagesRequest(routable: routable, images: images)
+		}
+		let newRoutable = try await requestAdapter.adapt(routable)
+		return try await createImagesRequest(routable: newRoutable, images: images)
+	}
+
 	// MARK: - Private methods
 
 	private func createRequest(routable: any Routable, completion: @escaping VoidReturnClosure<Result<T, NetworkError>>) {
@@ -96,6 +104,49 @@ public final class BasicRequest<T: Decodable>: Request {
 		if routable.encoding == .json, let params = routable.parameters {
 			request.httpBody = try? JSONEncoder().encode(params)
 		}
+
+		let (data, response) = try await URLSession.shared.data(for: request)
+
+		guard let networkReachability = self.networkReachability else {
+			throw NetworkError.noInternet
+		}
+		guard networkReachability.isReachable else {
+			throw NetworkError.noInternet
+		}
+		guard let httpResponse = response as? HTTPURLResponse, 200...300 ~= httpResponse.statusCode else {
+			throw NetworkError.general
+		}
+
+		guard let result = (T.self == Data.self) ? (data as? T) : try? JSONDecoder().decode(T.self, from: data) else {
+			throw NetworkError.decoding(data)
+		}
+
+		return result
+	}
+
+	private func createImagesRequest(routable: any Routable, images: [UploadImage]?) async throws -> T {
+		var request = URLRequest(url: routable.url)
+		request.httpMethod = routable.method.rawValue
+
+		let boundary = UUID().uuidString
+		var headers = routable.headers ?? [:]
+		headers["Content-Type"] = "multipart/form-data; boundary=\(boundary)"
+		request.allHTTPHeaderFields = headers
+
+		var body = Data()
+
+		if let images = images {
+			for image in images {
+				body.append("--\(boundary)\r\n".data(using: .utf8)!)
+				body.append("Content-Disposition: form-data; name=\"\(image.formFieldName)\"; filename=\"\(image.fileName)\"\r\n".data(using: .utf8)!)
+				body.append("Content-Type: \(image.mimeType)\r\n\r\n".data(using: .utf8)!)
+				body.append(image.data)
+				body.append("\r\n".data(using: .utf8)!)
+			}
+		}
+
+		body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+		request.httpBody = body
 
 		let (data, response) = try await URLSession.shared.data(for: request)
 

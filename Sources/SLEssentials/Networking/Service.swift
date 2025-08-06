@@ -21,6 +21,7 @@ open class Service<T: Decodable>: Routable {
 	public var errorInterceptor: ErrorInterceptor?
 	public var networkReachability: (any NetworkReachability)?
 	public var requestAdapter: RequestAdapter?
+	public var uploadImages: [UploadImage]?
 	public var completion: VoidReturnClosure<Result<T, NetworkError>>?
 
 	private let request = BasicRequest<T>()
@@ -76,6 +77,12 @@ open class Service<T: Decodable>: Routable {
 		request.networkReachability = networkReachability
 		request.requestAdapter = requestAdapter
 		return try await request.response(routable: self)
+	}
+
+	func imagesConsume() async throws -> T {
+		request.networkReachability = networkReachability
+		request.requestAdapter = requestAdapter
+		return try await request.imagesResponse(routable: self, images: uploadImages)
 	}
 
 	public func retry() {

@@ -11,6 +11,7 @@
 		06C2A39FB4FCFA4CB531F7F24B94FC02 /* UIViewController+Embed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF6A6A43C47D64B86221D39E32B1849 /* UIViewController+Embed.swift */; };
 		0A709FD65F95C425FCCBAB6A21102F71 /* UIApplication+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88AA9F5F80AA7C6388111A550302266 /* UIApplication+KeyWindow.swift */; };
 		0C4DF9F276FF15F0FE6AE42082F75BD1 /* SLEssentials-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48380BAF9F19DC63C1362E733388B037 /* SLEssentials-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10513BAB2E435F24008A7861 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10513BAA2E435F24008A7861 /* UploadImage.swift */; };
 		1073EDA92DC8B06000E6CB55 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EDA82DC8B06000E6CB55 /* DateFormat.swift */; };
 		10FA72A42DCA240600D3B17A /* UserDefaults+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA72A32DCA240600D3B17A /* UserDefaults+Object.swift */; };
 		1212F8B46DB05568FE2429A83FA263D2 /* ReachabilitySwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C791F637E0BC0B68D34143D0DAAB239 /* ReachabilitySwift-dummy.m */; };
@@ -160,6 +161,7 @@
 		0B7FA2ED7811B46ACA0C97FC7B5481AE /* Dictionary+Merge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merge.swift"; sourceTree = "<group>"; };
 		0CC89FAC767BDDA24CCF8F5F2E5CDEA2 /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Sources/Reachability.swift; sourceTree = "<group>"; };
 		0DADBF3AD719ABC86ABA3AA28FF00FEE /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		10513BAA2E435F24008A7861 /* UploadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		1073EDA82DC8B06000E6CB55 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		108E1438AF9A10F2612008A05688B44E /* NetworkError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		10E7FA01CDB7848D831C13859A26140A /* RequestAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestAdapter.swift; sourceTree = "<group>"; };
@@ -744,6 +746,7 @@
 				56B2C9684EF6EB6007028E93EF4E97BB /* Routable.swift */,
 				4D0B887C62A8692EF91DB54CDED36242 /* Service.swift */,
 				1073EDA82DC8B06000E6CB55 /* DateFormat.swift */,
+				10513BAA2E435F24008A7861 /* UploadImage.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1213,6 +1216,7 @@
 				22872062CA66F46BE73FFCB667B1E1CC /* ErrorInterceptor.swift in Sources */,
 				8EC6D76952CB189AF450F1D0676880AC /* ImageLoader.swift in Sources */,
 				51A0FFED94D2258FF0866142EF5C9D42 /* ImagePicker.swift in Sources */,
+				10513BAB2E435F24008A7861 /* UploadImage.swift in Sources */,
 				2D9A9A13C8F6577C52CEF6D9FD131CD1 /* KeyboardAccessoryView.swift in Sources */,
 				FF3D3EFC1EA093E8BF092ED2818E1354 /* KeyboardManager.swift in Sources */,
 				F228932811A96EEC5AD49F7C146CA094 /* LinkedList.swift in Sources */,
