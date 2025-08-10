@@ -14,20 +14,3 @@ public enum NetworkError: Error {
 	case backendUnavailable
 	case decoding(Data)
 }
-
-extension NetworkError: LocalizedError {
-	public var errorDescription: String? {
-		switch self {
-		case .general:
-			"Unknown error"
-		case .decoding:
-			"Decoding error"
-		case .error(let error):
-			error.localizedDescription
-		case .noInternet:
-			"No internet connection"
-		case .backendUnavailable:
-			"Backend unavailable"
-		}
-	}
-}
